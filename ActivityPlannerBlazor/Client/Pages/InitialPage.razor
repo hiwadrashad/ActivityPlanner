@@ -1,0 +1,65 @@
+﻿@page "/"
+@using ActivityPlannerBlazor.Client.Interfaces;
+@using ActivityPlannerBlazor.Shared.Models;
+@using Microsoft.AspNetCore.Components;
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Threading.Tasks;
+
+@if (InitialModels == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Text</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in InitialModels)
+            {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.Text</td>
+                <td>
+                    <a href="@($"edititem/{item.id}")" class="btn btn-primary table-btn">
+                        Edit item
+                    </a>
+                </td>
+                <td>
+                    <a href="@($"deleteitem/{item.id}")" class="btn btn-primary table-btn">
+                        deleteitem
+                    </a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+<button @onclick="sendtoaddingpage">goto page</button>
+
+@code {
+    [Inject]
+    public IInitialDataService InitialdataService { get; set; }
+    public List<InitialModel> InitialModels { get; set; }
+
+    [Inject]
+    public NavigationManager navmanager { get; set; }
+
+    public void sendtoaddingpage()
+    {
+        navmanager.NavigateTo("/additem");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        InitialModels = (await InitialdataService.GetAllInitials()).ToList();
+    }
+}
