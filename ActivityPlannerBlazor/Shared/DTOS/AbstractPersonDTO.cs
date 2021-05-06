@@ -8,7 +8,7 @@ namespace ActivityPlannerBlazor.Shared.DTOS
     public abstract class AbstractPersonDTO
     {
         [Key]
-        public virtual string Id { get; set; }
+        public virtual string id { get; set; }
         public virtual PersonalDataDTO Data { get; set; } = new PersonalDataDTO();
     }
 }

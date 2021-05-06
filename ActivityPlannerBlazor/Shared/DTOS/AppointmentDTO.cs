@@ -9,7 +9,7 @@ namespace ActivityPlannerBlazor.Shared.DTOS
     public class AppointmentDTO
     {
         [Key]
-        public string Id { get; set; }
+        public string id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         [Display(Name = "Organizer")]
