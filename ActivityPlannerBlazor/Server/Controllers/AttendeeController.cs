@@ -1,11 +1,11 @@
 ﻿using ActivityPlannerBlazor.Repo.Interfaces;
 using ActivityPlannerBlazor.Repo.Repos;
+using ActivityPlannerBlazor.Shared.DTOS;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ActivityPlannerBlazor.Shared.DTOS;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,23 +13,23 @@ namespace ActivityPlannerBlazor.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AppointmentController : Controller
+    public class AttendeeController : Controller
     {
         public IMockingRepo _repo = MockingRepo.GetMockingRepo();
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok(_repo.GetAllAppointments());
+            return Ok(_repo.GetAllAttendees());
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
-            return Ok(_repo.GetAppointment(id));
+            return Ok(_repo.GetAttendee(id));
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] AppointmentDTO model)
+        public IActionResult Create([FromBody] AttendeeDTO model)
         {
             if (model == null)
                 return BadRequest();
@@ -42,13 +42,13 @@ namespace ActivityPlannerBlazor.Server.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var createdModel = _repo.AddAppointmentAndReturnModel(model);
+            var createdModel = _repo.AddAttendeeAndReturnModel(model);
 
-            return Created("appointment", createdModel);
+            return Created("attendee", createdModel);
         }
 
         [HttpPut]
-        public IActionResult Update([FromBody] AppointmentDTO model)
+        public IActionResult Update([FromBody] AttendeeDTO model)
         {
             if (model == null)
                 return BadRequest();
@@ -61,12 +61,12 @@ namespace ActivityPlannerBlazor.Server.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var employeeToUpdate = _repo.GetAppointment(model.id);
+            var employeeToUpdate = _repo.GetAttendee(model.id);
 
             if (employeeToUpdate == null)
                 return NotFound();
 
-            _repo.UpdateAppointment(model);
+            _repo.UpdatAttendee(model);
 
             return NoContent(); //success
         }
@@ -77,11 +77,11 @@ namespace ActivityPlannerBlazor.Server.Controllers
             if (id == null)
                 return BadRequest();
 
-            var ToDelete = _repo.GetAppointment(id);
+            var ToDelete = _repo.GetAttendee(id);
             if (ToDelete == null)
                 return NotFound();
 
-            _repo.DeleteAppointment(id);
+            _repo.DeleteAttendee(id);
 
             return NoContent();//success
         }
