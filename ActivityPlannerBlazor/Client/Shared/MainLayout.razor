@@ -1,13 +1,46 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="sidebar">
+@*<div class="sidebar">
     <NavMenu />
-</div>
+</div>*@
+<style>
+    .changetopbar {
+    
+    height: 50px;
 
+    background-color:lightsteelblue !important;
+    }
+
+    .changefontcolor {
+        color: white !important;
+        font-size: medium;
+    }
+
+
+
+    @@media screen and (max-width: 1367px) {
+
+        .title {
+            color: white !important;
+            font-size: large;
+            transform: translateX(-1100px);
+        }
+    }
+
+    @@media screen and (min-width: 1367px) {
+
+        .title {
+            color: white !important;
+            font-size: large;
+            transform: translateX(-1600px);
+        }
+    }
+
+</style>
 <div class="main">
-    <div class="top-row px-4 auth">
+    <div class="top-row px-4 auth changetopbar">
         <LoginDisplay />
-        <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        <strong class="title">Activity Planner</strong>
     </div>
 
     <div class="content px-4">

@@ -7,5 +7,6 @@ namespace ActivityPlannerBlazor.Shared.DTOS
     public class OrganizerDTO : AbstractPersonDTO
     {
         public List<AppointmentDTO> Appointments { get; set; }
+        public List<AttendeeDTO> Acquaintances { get; set; }
     }
 }
