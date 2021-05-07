@@ -7,12 +7,13 @@
     .changetopbar {
     
     height: 50px;
-
-    background-color:lightsteelblue !important;
+    position: sticky !important;
+    z-index: 9999;
+    background-color:transparent !important;
     }
 
     .changefontcolor {
-        color: white !important;
+        color: gray !important;
         font-size: medium;
     }
 
@@ -38,10 +39,10 @@
 
 </style>
 <div class="main">
-    <div class="top-row px-4 auth changetopbar">
+    @*<div class="top-row px-4 auth changetopbar">
         <LoginDisplay />
         <strong class="title">Activity Planner</strong>
-    </div>
+    </div>*@
 
     <div class="content px-4">
         @Body
