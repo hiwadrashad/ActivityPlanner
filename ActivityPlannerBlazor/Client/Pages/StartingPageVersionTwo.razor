@@ -20,6 +20,33 @@
     .scalethis {
 /**/        transform: scale(1.05);
 /**/    }
+    .card__btn {
+        display: block;
+        width: 100%;
+        padding: 1.5rem;
+        font-size: 2rem;
+        text-align: center;
+        color: #3363ff;
+        background-color: #e6ecff;
+        border: none;
+        border-radius: 0.4rem;
+        transition: 0.2s;
+        cursor: pointer;
+        transform: scale(0.5);
+    }
+
+        .card__btn span {
+            margin-left: 1rem;
+            transition: 0.2s;
+        }
+
+        .card__btn:hover, .card__btn:active {
+            background-color: #dce4ff;
+        }
+
+            .card__btn:hover span, .card__btn:active span {
+                margin-left: 1.5rem;
+            }
 </style>
 <html lang="en">
 <head>
@@ -114,10 +141,10 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="text-container">
-                        <h1 class="h1-large">Team management mobile application</h1>
-                        <p class="p-large">Start getting things done together with your team based on Pavo's revolutionary team management features</p>
-                        <a class="btn-solid-lg" href="#your-link"><i class="fab fa-apple"></i>Download</a>
-                        <a class="btn-solid-lg secondary" href="#your-link"><i class="fab fa-google-play"></i>Download</a>
+                        <h1 class="h1-large">Activity planner mobile application</h1>
+                        <p class="p-large">Start making appointments the Activity Planner® way</p>
+                        <a class="btn-solid-lg" href="#"><i class="fab fa-apple"></i>Download</a>
+                        <a class="btn-solid-lg secondary" href="#"><i class="fab fa-google-play"></i>Download</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6">
@@ -134,13 +161,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Team management mobile apps don’t get better than Pavo. It’s probably the best app in the world for this purpose. Don’t hesitate to give it a try today and you will fall in love with it</p>
+                    <p>No more uncertain appointments, the future is here to help you a hand with all your activity's, with integrated Whatsapp® support to send messages to all your contacts</p>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
     </div> <!-- end of basic-1 -->
     <!-- end of introduction -->
     <!-- Features -->
+
     <div id="features" class="cards-1">
         <div class="container">
             <div class="row">
@@ -152,8 +180,9 @@
                             <img class="img-fluid" src="/FrontPageTwo/images/features-icon-1.svg" alt="alternative">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Platform Integration</h5>
-                            <p>You sales force can use the app on any smartphone platform without compatibility issues</p>
+                            <h5 class="card-title">Add an appointment</h5>
+                            <p>Add new <strong>attendees</strong> and <strong>Apointments.</strong></p>
+                            <div class="card__btn">Go<span>&rarr;</span></div>
                         </div>
                     </div>
                     <!-- end of card -->
@@ -163,30 +192,10 @@
                             <img class="img-fluid" src="/FrontPageTwo/images/features-icon-2.svg" alt="alternative">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Easy On Resources</h5>
-                            <p>Works smoothly even on older generation hardware due to our optimization efforts</p>
-                        </div>
-                    </div>
-                    <!-- end of card -->
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img class="img-fluid" src="/FrontPageTwo/images/features-icon-3.svg" alt="alternative">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Great Performance</h5>
-                            <p>Optimized code and innovative technology insure no delays and ultra-fast responsiveness</p>
-                        </div>
-                    </div>
-                    <!-- end of card -->
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img class="img-fluid" src="/FrontPageTwo/images/features-icon-4.svg" alt="alternative">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Multiple Languages</h5>
-                            <p>Choose from one of the 40 languages that come pre-installed and start selling smarter</p>
+                            <h5 class="card-title">Appointment overview</h5>
+                            <p>See and edit all your <strong>appointments</strong> and customize it to your own liking.</p>
+                            <div class="card__btn">Go<span>&rarr;</span></div>
+
                         </div>
                     </div>
                     <!-- end of card -->
@@ -196,13 +205,37 @@
                             <img class="img-fluid" src="/FrontPageTwo/images/features-icon-5.svg" alt="alternative">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Free Updates</h5>
-                            <p>Don't worry about future costs, pay once and receive all future updates at no extra cost</p>
+                            <h5 class="card-title">Add acquaintances</h5>
+                            <p>Add all your <strong>acquaintances</strong>, the more the merrier.</p>
+                            <div class="card__btn">Go<span>&rarr;</span></div>
+
                         </div>
                     </div>
                     <!-- end of card -->
                     <!-- Card -->
-                    <div class="card">
+                    <!--<div class="card">
+                        <div class="card-image">
+                            <img class="img-fluid" src="/FrontPageTwo/images/features-icon-4.svg" alt="alternative">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Multiple Languages</h5>
+                            <p>Choose from one of the 40 languages that come pre-installed and start selling smarter</p>
+                        </div>
+                    </div>-->
+                    <!-- end of card -->
+                    <!-- Card -->
+                    <!--<div class="card">
+                        <div class="card-image">
+                            <img class="img-fluid" src="/FrontPageTwo/images/features-icon-3.svg" alt="alternative">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Free Updates</h5>
+                            <p>Don't worry about future costs, pay once and receive all future updates at no extra cost</p>
+                        </div>
+                    </div>-->
+                    <!-- end of card -->
+                    <!-- Card -->
+                    <!--<div class="card">
                         <div class="card-image">
                             <img class="img-fluid" src="/FrontPageTwo/images/features-icon-6.svg" alt="alternative">
                         </div>
@@ -210,7 +243,7 @@
                             <h5 class="card-title">Community Support</h5>
                             <p>Register the app and get acces to knowledge and ideas from the Pavo online community</p>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- end of card -->
 
                 </div> <!-- end of col -->
@@ -225,8 +258,8 @@
                 <div class="col-lg-5">
                     <div class="text-container">
                         <h2>Results driven ground breaking technology</h2>
-                        <p>Based on our team's extensive experience in developing line of business applications and constructive customer feedback we reached a new level of revenue.</p>
-                        <p>We enjoy helping small and medium sized tech businesses take a shot at established Fortune 500 companies</p>
+                        <p>We will help you on all levels of communication, Activity Planner® is suited for all types of people. </p>
+                        <p>High performant and scalable software for all your needs.</p>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-7">
@@ -249,23 +282,22 @@
                 </div> <!-- end of col -->
                 <div class="col-lg-5">
                     <div class="text-container">
-                        <h2>Instant results for the marketing department</h2>
+                        <h2>Multidisciplinair platform</h2>
                         <ul class="list-unstyled li-space-lg">
                             <li class="media">
                                 <i class="fas fa-chevron-right"></i>
-                                <div class="media-body">Features that will help you and your marketers</div>
+                                <div class="media-body">Make appointments for bussiness</div>
                             </li>
                             <li class="media">
                                 <i class="fas fa-chevron-right"></i>
-                                <div class="media-body">Smooth learning curve due to the knowledge base</div>
+                                <div class="media-body">Help out family members</div>
                             </li>
                             <li class="media">
                                 <i class="fas fa-chevron-right"></i>
-                                <div class="media-body">Ready out-of-the-box with minor setup settings</div>
+                                <div class="media-body">Pick a date for you and your friends</div>
                             </li>
                         </ul>
-                        <a class="btn-solid-reg popup-with-move-anim" href="#">Lightbox</a>
-                        <a class="btn-outline-reg" href="#">Details</a>
+                        <a class="btn-solid-reg popup-with-move-anim" href="#">Read more</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -274,15 +306,15 @@
     <!-- end of details 2 -->
     <!-- Details Lightbox -->
     <!-- Lightbox -->
-    <div id="details-lightbox" class="lightbox-basic zoom-anim-dialog mfp-hide">
+    <!--<div id="details-lightbox" class="lightbox-basic zoom-anim-dialog mfp-hide">
         <div class="row">
             <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
             <div class="col-lg-8">
                 <div class="image-container">
                     <img class="img-fluid" src="/FrontPageTwo/images/details-lightbox.jpg" alt="alternative">
-                </div> <!-- end of image-container -->
-            </div> <!-- end of col -->
-            <div class="col-lg-4">
+                </div>--> <!-- end of image-container -->
+            <!--</div>--> <!-- end of col -->
+            <!--<div class="col-lg-4">
                 <h3>Goals Setting</h3>
                 <hr>
                 <p>The app can easily help you track your personal development evolution if you take the time to set it up.</p>
@@ -306,9 +338,9 @@
                     </li>
                 </ul>
                 <a class="btn-solid-reg mfp-close page-scroll" href="#">Download</a> <button class="btn-outline-reg mfp-close as-button" type="button">Back</button>
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
+            </div>--> <!-- end of col -->
+        <!--</div>--> <!-- end of row -->
+    <!--</div>--> <!-- end of lightbox-basic -->
     <!-- end of lightbox -->
     <!-- end of details lightbox -->
     <!-- Details 3 -->
@@ -317,9 +349,9 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="text-container">
-                        <h2>Platform integration and life time free updates</h2>
-                        <p>Get a glimpse of what this app can do for your marketing automation and understand why current users are so excited when using Pavo together with their teams.</p>
-                        <p>We will promptly answer any questions and honor your requests based on the service level agreement</p>
+                        <h2>Platform independant meetings</h2>
+                        <p>Get a glimpse of what this app can do for you and your contacts.</p>
+                        <p>WMultiple platforms too choose, one click away from multi platform messaging</p>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-7">
@@ -332,13 +364,13 @@
     </div> <!-- end of basic-4 -->
     <!-- end of details 3 -->
     <!-- Statistics -->
-    <div class="counter">
+    <!--<div class="counter">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12">-->
 
                     <!-- Counter -->
-                    <div id="counter">
+                    <!--<div id="counter">
                         <div class="cell">
                             <div class="counter-value number-count" data-count="231">1</div>
                             <p class="counter-info">Happy Users</p>
@@ -359,20 +391,20 @@
                             <div class="counter-value number-count" data-count="211">1</div>
                             <p class="counter-info">Orders Received</p>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- end of counter -->
 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of counter -->
+                <!--</div>--> <!-- end of col -->
+            <!--</div>--> <!-- end of row -->
+        <!--</div>--> <!-- end of container -->
+    <!--</div>--> <!-- end of counter -->
     <!-- end of statistics -->
     <!-- Testimonials -->
     <div class="slider-1 bg-gray">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="h2-heading">What do users think about Pavo</h2>
+                    <h2 class="h2-heading">Our team</h2>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
             <div class="row">
@@ -386,7 +418,7 @@
                                     <div class="card">
                                         <img class="card-image" src="/FrontPageTwo/images/testimonial-4.jpg" alt="alternative">
                                         <div class="card-body">
-                                            <p class="testimonial-text">We've been waiting for a powerful piece of software that can help businesses manage their marketing projects</p>
+                                            <p class="testimonial-text">We poured all our heart into this project to help closen the much needed gap in communication</p>
                                             <p class="testimonial-author">Tim Shaw - Designer</p>
                                         </div>
                                     </div>
@@ -394,7 +426,7 @@
                                     <div class="card">
                                         <img class="card-image" src="i/FrontPageTwo/mages/testimonial-5.jpg" alt="alternative">
                                         <div class="card-body">
-                                            <p class="testimonial-text">Searching for a great prototyping and layout design app was difficult but thankfully I found app suite quickly</p>
+                                            <p class="testimonial-text">Me and my team not only loved creating this app, but use it daily ourselves!</p>
                                             <p class="testimonial-author">Lindsay Spice - Marketer</p>
                                         </div>
                                     </div>
@@ -402,14 +434,14 @@
                                     <div class="card">
                                         <img class="card-image" src="/FrontPageTwo/images/testimonial-6.jpg" alt="alternative">
                                         <div class="card-body">
-                                            <p class="testimonial-text">The app support team is amazing. They've helped me with some issues and I am so grateful to the entire team</p>
+                                            <p class="testimonial-text">There went alot of tought into the process of making this app, if there is a problem please notify us.</p>
                                             <p class="testimonial-author">Ann Blake - Developer</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Slide -->
-                                <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0" style="width: 294px; margin-right: 70px;">
+                                <!--<div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0" style="width: 294px; margin-right: 70px;">
                                     <div class="card">
                                         <img class="card-image" src="/FrontPageTwo/images/testimonial-1.jpg" alt="alternative">
                                         <div class="card-body">
@@ -417,14 +449,14 @@
                                             <p class="testimonial-author">Jude Thorn - Designer</p>
                                         </div>
                                     </div>
-                                </div> <!-- end of swiper-slide -->
+                                </div>--> <!-- end of swiper-slide -->
                                 <!-- end of slide -->
                                 <!-- Slide -->
                                 <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1" style="width: 294px; margin-right: 70px;">
                                     <div class="card">
                                         <img class="card-image" src="/FrontPageTwo/images/testimonial-2.jpg" alt="alternative">
                                         <div class="card-body">
-                                            <p class="testimonial-text">We were so focused on launching as many campaigns as possible that we've forgotten to target our loyal customers</p>
+                                            <p class="testimonial-text">There went alot of tought into the process of making this app, if there is a problem please notify us.</p>
                                             <p class="testimonial-author">Roy Smith - Developer</p>
                                         </div>
                                     </div>
@@ -435,7 +467,7 @@
                                     <div class="card">
                                         <img class="card-image" src="/FrontPageTwo/images/testimonial-3.jpg" alt="alternative">
                                         <div class="card-body">
-                                            <p class="testimonial-text">I've been searching for a tool like Pavo for so long. I love the reports it generates and the amazing high accuracy</p>
+                                            <p class="testimonial-text">Me and my team not only loved creating this app, but use it daily ourselves!</p>
                                             <p class="testimonial-author">Marsha Singer - Marketer</p>
                                         </div>
                                     </div>
@@ -446,7 +478,7 @@
                                     <div class="card">
                                         <img class="card-image" src="/FrontPageTwo/images/testimonial-4.jpg" alt="alternative">
                                         <div class="card-body">
-                                            <p class="testimonial-text">We've been waiting for a powerful piece of software that can help businesses manage their marketing projects</p>
+                                            <p class="testimonial-text">We poured all our heart into this project to help closen the much needed gap in communication</p>
                                             <p class="testimonial-author">Tim Shaw - Designer</p>
                                         </div>
                                     </div>
@@ -487,7 +519,7 @@
                                     <div class="card">
                                         <img class="card-image" src="/FrontPageTwo/images/testimonial-2.jpg" alt="alternative">
                                         <div class="card-body">
-                                            <p class="testimonial-text">We were so focused on launching as many campaigns as possible that we've forgotten to target our loyal customers</p>
+                                            <p class="testimonial-text">There went alot of tought into the process of making this app, if there is a problem please notify us.</p>
                                             <p class="testimonial-author">Roy Smith - Developer</p>
                                         </div>
                                     </div>
@@ -495,7 +527,7 @@
                                     <div class="card">
                                         <img class="card-image" src="/FrontPageTwo/images/testimonial-3.jpg" alt="alternative">
                                         <div class="card-body">
-                                            <p class="testimonial-text">I've been searching for a tool like Pavo for so long. I love the reports it generates and the amazing high accuracy</p>
+                                            <p class="testimonial-text">Me and my team not only loved creating this app, but use it daily ourselves!</p>
                                             <p class="testimonial-author">Marsha Singer - Marketer</p>
                                         </div>
                                     </div>
@@ -517,20 +549,20 @@
     </div> <!-- end of slider-1 -->
     <!-- end of testimonials -->
     <!-- Pricing -->
-    <div id="pricing" class="cards-2">
+    <!--<div id="pricing" class="cards-2">
         <div class="decoration-bg"></div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <h2 class="h2-heading">Pricing options for all budgets</h2>
                     <p class="p-heading">Our pricing plans are setup in such a way that any user can start enjoying Pavo without worrying so much about costs. They are flexible and work for any type of industry</p>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
+                </div>--> <!-- end of col -->
+            <!--</div>--> <!-- end of row -->
+            <!--<div class="row">
+                <div class="col-lg-12">-->
 
                     <!-- Card-->
-                    <div class="card">
+                    <!--<div class="card">
                         <div class="card-body">
                             <div class="card-title">STANDARD</div>
                             <div class="price"><span class="currency">$</span><span class="value">29</span></div>
@@ -554,10 +586,10 @@
                                 <a class="btn-solid-reg page-scroll" href="#">Download</a>
                             </div>
                         </div>
-                    </div> <!-- end of card -->
+                    </div>--> <!-- end of card -->
                     <!-- end of card -->
                     <!-- Card-->
-                    <div class="card">
+                    <!--<div class="card">
                         <div class="card-body">
                             <div class="card-title">ADVANCED</div>
                             <div class="price"><span class="currency">$</span><span class="value">39</span></div>
@@ -581,10 +613,10 @@
                                 <a class="btn-solid-reg page-scroll" href="#">Download</a>
                             </div>
                         </div>
-                    </div> <!-- end of card -->
+                    </div>--> <!-- end of card -->
                     <!-- end of card -->
                     <!-- Card-->
-                    <div class="card">
+                    <!--<div class="card">
                         <div class="card-body">
                             <div class="card-title">COMPLETE</div>
                             <div class="price"><span class="currency">$</span><span class="value">49</span></div>
@@ -608,13 +640,13 @@
                                 <a class="btn-solid-reg page-scroll" href="#">Download</a>
                             </div>
                         </div>
-                    </div> <!-- end of card -->
+                    </div>--> <!-- end of card -->
                     <!-- end of card -->
 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of cards-2 -->
+                <!--</div>--> <!-- end of col -->
+            <!--</div>--> <!-- end of row -->
+        <!--</div>--> <!-- end of container -->
+    <!--</div>--> <!-- end of cards-2 -->
     <!-- end of pricing -->
     <!-- Conclusion -->
     <div id="download" class="basic-5">
@@ -627,7 +659,7 @@
                 </div> <!-- end of col -->
                 <div class="col-lg-6">
                     <div class="text-container">
-                        <p>Team management mobile applications don’t get much better than Pavo. Download it today</p>
+                        <p>get the latest version of Activity Planner® to stay in contact with all your contacts. Download it today</p>
                         <a class="btn-solid-lg" href="#"><i class="fab fa-apple"></i>Download</a>
                         <a class="btn-solid-lg secondary" href="#"><i class="fab fa-google-play"></i>Download</a>
                     </div> <!-- end of text-container -->
@@ -641,7 +673,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h4>Pavo is a mobile application for marketing automation and you can reach the team at <a class="purple" href="#">email@domain.com</a></h4>
+                    <h4>Contact our team at <a class="purple" href="#">activityplanner@gmail.com</a></h4>
                     <div class="social-container">
                         <span class="fa-stack">
                             <a href="#">
@@ -691,7 +723,7 @@
                     </ul>
                 </div> <!-- end of col -->
                 <div class="col-lg-6">
-                    <p class="p-small statement">Copyright © <a href="#">Your name</a></p>
+                    <p class="p-small statement">Copyright © <a href="#">Activity Planner®</a></p>
                 </div> <!-- end of col -->
             </div> <!-- enf of row -->
         </div> <!-- end of container -->
