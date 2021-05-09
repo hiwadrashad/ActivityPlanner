@@ -1,8 +1,13 @@
-﻿@page "/addacquaintance"
+﻿@page "/somethingelse"
 <style>
     body {
      overflow-x : hidden;
-    }   
+    }
+
+    nav {
+    
+    transform: translateY(15px);
+    }
     @@media screen and (min-width: 1367px) {
 
         .scaleeverything {
@@ -11,6 +16,11 @@
          transform: scale(1.2);
 /*         transform: translate(-50px,-19px);
 */        }
+
+        .wrap-contact2 {
+        
+        transform: scale(0.7) !important;
+        }
     }
 
     @@media screen and (max-width: 1367px) {
@@ -21,6 +31,10 @@
             transform: scale(1.05);
             /*         transform: translate(-50px,-19px);
 */
+        }
+
+        .wrap-contact2 {
+        transform: scale(0.65) !important;
         }
     }
 </style>

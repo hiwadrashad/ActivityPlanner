@@ -29,7 +29,10 @@ namespace ActivityPlannerBlazor.Client
             {
                 client.BaseAddress = new Uri("https://localhost:44333/");
             });
-            
+            builder.Services.AddHttpClient<ICurrentOrganizerDataService, CurrentOrganizerDataService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44333/");
+            });
             builder.Services.AddApiAuthorization();
 
             await builder.Build().RunAsync();

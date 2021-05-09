@@ -20,7 +20,8 @@ namespace ActivityPlannerBlazor.Server.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok(_repo.GetAllOrganizers());
+          
+            return Ok(_repo.GetAllAppointments());
         }
 
         [HttpGet("{id}")]

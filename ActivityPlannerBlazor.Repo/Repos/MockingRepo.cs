@@ -58,7 +58,7 @@ namespace ActivityPlannerBlazor.Repo.Repos
             };
 
             _attendees = new List<AttendeeDTO>();
-            _organizers = new List<OrganizerDTO>();
+            _appointments = new List<AppointmentDTO>();
         }
 
         public bool AddAppointment(AppointmentDTO DTO)

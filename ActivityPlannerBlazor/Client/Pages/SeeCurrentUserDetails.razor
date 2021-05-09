@@ -1,0 +1,47 @@
+﻿@page "/plcholder"
+@using ActivityPlannerBlazor.Client.Interfaces;
+@using ActivityPlannerBlazor.Shared.DTOS;
+@using Microsoft.AspNetCore.Components;
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Threading.Tasks;
+<section class="employee-detail">
+    <h1 class="page-title">Details</h1>
+
+
+    <div class="col-12 row">
+       
+        <div class="col-10 row">
+            <div class="col-xs-12 col-sm-8">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">ID</label>
+                    <div class="col-sm-8">
+                        <label type="text" class="form-control-plaintext">@CurrentOrganizer.id</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">First name</label>
+                    <div class="col-sm-8">
+                        <label type="text" readonly class="form-control-plaintext">@CurrentOrganizer.Data.Email</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+    @code {
+        [Inject]
+        public ICurrentOrganizerDataService CurrentOrganizerDataService { get; set; }
+
+        public OrganizerDTO CurrentOrganizer { get; set; } = new OrganizerDTO() { };
+
+        protected override async Task OnInitializedAsync()
+        {
+            CurrentOrganizer = await CurrentOrganizerDataService.GetCurrentUser(); ;
+        }
+    }
