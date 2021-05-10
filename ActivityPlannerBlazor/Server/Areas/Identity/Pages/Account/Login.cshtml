@@ -1,0 +1,196 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<style>
+    @@media screen and (min-width: 1367px) {
+
+        .translateloginregister {
+            transform: translate(50px,-112px);
+
+        }
+        body {
+        overflow: hidden;
+        }
+    }
+    @@media screen and (max-width: 1367px) {
+
+        .translateloginregister {
+            transform: translate(50px,-112px);
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .scaleinput {
+        transform: scale(0.9);
+        }
+    }
+
+    
+</style>
+
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/LoginRegisterPage/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="/LoginRegisterPage/css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/LoginRegisterPage/css/bootstrap.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="/LoginRegisterPage/css/style.css">
+
+</head>
+<body>
+
+
+    <div class="d-lg-flex half translateloginregister">
+        <div class="bg order-1 order-md-2" style="background-image: url('/LoginRegisterPage/images/bg_1.jpg');"></div>
+        <div class="contents order-2 order-md-1">
+
+            <div class="container scaleinput">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-md-7">
+                        <div class="mb-4">
+                            <h3>Sign In</h3>
+                            <p class="mb-4">Expand your world, one step at a time.</p>
+                        </div>
+                        <form id="account" method="post">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="form-group first">
+                                <label for="username">Email</label>
+                                <input asp-for="Input.Email" type="text" class="form-control" id="username">
+                            </div>
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            <div class="form-group last mb-3">
+                                <label for="password">Password</label>
+                                <input asp-for="Input.Password" type="password" class="form-control" id="password">
+                            </div>
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+                            <div class="d-flex mb-5 align-items-center">
+                                <label class="control control--checkbox mb-0">
+                                    <a class="caption" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                                </label>
+                                <span class="ml-auto"><a id="forgot-password" asp-page="./ForgotPassword" class="forgot-pass">Forgot Password</a></span>
+                            </div>
+
+                            <input type="submit" value="Log In" class="btn btn-block btn-primary">
+
+                            <span class="d-block text-center my-4 text-muted">— or —</span>
+
+                            <div class="social-login">
+                                <a href="#" class="facebook btn d-flex justify-content-center align-items-center">
+                                    <span class="icon-facebook mr-3"></span> Login with Facebook
+                                </a>
+                                <a href="#" class="twitter btn d-flex justify-content-center align-items-center">
+                                    <span class="icon-twitter mr-3"></span> Login with  Twitter
+                                </a>
+                                <a href="#" class="google btn d-flex justify-content-center align-items-center">
+                                    <span class="icon-google mr-3"></span> Login with  Google
+                                </a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script src="/LoginRegisterPage/js/jquery-3.3.1.min.js"></script>
+    <script src="/LoginRegisterPage/js/popper.min.js"></script>
+    <script src="/LoginRegisterPage/js/bootstrap.min.js"></script>
+    <script src="/LoginRegisterPage/js/main.js"></script>
+
+</body>
+</html>
+@*<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                <h4>Use a local account to log in.2</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Password"></label>
+                    <input asp-for="Input.Password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe">
+                            <input asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                </div>
+                <div class="form-group">
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h4>Use another service to log in.</h4>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                            for details on setting up this ASP.NET application to support logging in via external services.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div>*@
+
+@*@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    
+}*@

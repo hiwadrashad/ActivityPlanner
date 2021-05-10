@@ -4,9 +4,9 @@ using System.Text;
 
 namespace ActivityPlannerBlazor.Shared.DTOS
 {
-    public abstract class AttendeeDTO : AbstractPersonDTO
+    public class AttendeeDTO : AbstractPersonDTO
     {
-        public List<AcceptedInviteDTO> AcceptedInvites { get; set; }
-        public List<NotAcceptedInviteDTO> NotAcceptedInvites { get; set; }
+        public List<AcceptedInviteDTO> AcceptedInvites { get; set; } = new List<AcceptedInviteDTO>();
+        public List<NotAcceptedInviteDTO> NotAcceptedInvites { get; set; } = new List<NotAcceptedInviteDTO>();
     }
 }

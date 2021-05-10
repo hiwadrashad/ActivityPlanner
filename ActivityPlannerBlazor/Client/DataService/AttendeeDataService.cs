@@ -1,4 +1,5 @@
-﻿using ActivityPlannerBlazor.Shared.DTOS;
+﻿using ActivityPlannerBlazor.Client.Interfaces;
+using ActivityPlannerBlazor.Shared.DTOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ActivityPlannerBlazor.Client.DataService
 {
-    public class AttendeeDataService
+    public class AttendeeDataService :IAttendeeDataService
     {
         private readonly HttpClient _httpClient;
 

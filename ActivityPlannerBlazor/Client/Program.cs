@@ -33,6 +33,18 @@ namespace ActivityPlannerBlazor.Client
             {
                 client.BaseAddress = new Uri("https://localhost:44333/");
             });
+            builder.Services.AddHttpClient<IAppointmentDataService, AppointmentDataService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44333/");
+            });
+            builder.Services.AddHttpClient<IAttendeeDataService, AttendeeDataService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44333/");
+            });
+            builder.Services.AddHttpClient<IOrganizerDataService, OrganizerDataService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44333/");
+            });
             builder.Services.AddApiAuthorization();
 
             await builder.Build().RunAsync();

@@ -13,9 +13,9 @@ namespace ActivityPlannerBlazor.Shared.DTOS
         public string Name { get; set; }
         public string Description { get; set; }
         [Display(Name = "Organizer")]
-        public OrganizerDTO MainOrganizer { get; set; }
-        public List<OrganizerDTO> Organizers { get; set; }
-        public List<AttendeeDTO> Attendees { get; set; }
+        public OrganizerDTO MainOrganizer { get; set; } = new OrganizerDTO();
+        public List<OrganizerDTO> Organizers { get; set; } = new List<OrganizerDTO>();
+        public List<AttendeeDTO> Attendees { get; set; } = new List<AttendeeDTO>();
         [Display(Name = "Approximate date")]
         public Season ApproximateDate { get; set; }
         [Display(Name = "Starting date")]

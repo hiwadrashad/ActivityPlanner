@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActivityPlannerBlazor.Share
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActivityPlannerBlazor.Repo", "ActivityPlannerBlazor.Repo\ActivityPlannerBlazor.Repo.csproj", "{4109A454-95AB-4116-8678-6A0A9049BDB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{4ABC1A92-DE45-43C5-B40B-3A0BBE825B19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "TestConsole\TestConsole.csproj", "{4ABC1A92-DE45-43C5-B40B-3A0BBE825B19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

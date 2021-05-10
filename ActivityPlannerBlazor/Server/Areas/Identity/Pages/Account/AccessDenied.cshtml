@@ -1,0 +1,48 @@
+﻿@page
+@model AccessDeniedModel
+@{
+    ViewData["Title"] = "Access denied";
+}
+
+<style>
+    @@media screen and (min-width: 1367px) {
+
+        .containerscaling {
+            transform: translateY(100px);
+        }
+    }
+    @@media screen and (max-width: 1367px) {
+
+        .containerscaling {
+            transform: scale(0.8);
+        }
+    }
+
+</style>
+<head>
+    <link href="/MessagePage/css/froala_blocks.css" rel="stylesheet">
+</head>
+<section class="fdb-block containerscaling">
+    <div class="col-fill-right imagescaling" style="background-image: url(/MessagePage/imgs/people/6.jpg);">
+    </div>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 col-md-5 text-center">
+                <h1>Message page</h1>
+                <p class="lead">Access denied, if you want to login click on the login button.</p>
+                <p class="mt-4 mb-5"><a class="btn btn-secondary" href="./Login">Login</a></p>
+
+                <p>Follow us on</p>
+                <p>
+                    <a href="#" class="mx-2 text-secondary"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#" class="mx-2 text-secondary"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#" class="mx-2 text-secondary"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#" class="mx-2 text-secondary"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                    <a href="#" class="mx-2 text-secondary"><i class="fa fa-google" aria-hidden="true"></i></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
