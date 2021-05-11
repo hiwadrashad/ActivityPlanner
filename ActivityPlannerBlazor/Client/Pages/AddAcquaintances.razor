@@ -78,19 +78,43 @@
                             Fill in information
                         </span>
 
-                        <div class="wrap-input2 validate-input" data-validate="Name is required">
-                            <input class="input2" type="text" name="name">
+                        <div class="wrap-input2 validate-input">
+                            <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@AttendeeToAdd.Data.Name"></InputText>
+                            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => AttendeeToAdd.Data.Name)" />
                             <span class="focus-input2" data-placeholder="NAME"></span>
                         </div>
 
-                        <div class="wrap-input2 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                            <input class="input2" type="text" name="email">
+                        <div class="wrap-input2 validate-input">
+                            <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@AttendeeToAdd.Data.Email"></InputText>
+                            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => AttendeeToAdd.Data.Email)" />
                             <span class="focus-input2" data-placeholder="EMAIL"></span>
                         </div>
 
-                        <div class="wrap-input2 validate-input" data-validate="Message is required">
-                            <textarea class="input2" name="message"></textarea>
-                            <span class="focus-input2" data-placeholder="MESSAGE"></span>
+                        <div class="wrap-input2 validate-input">
+                            <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@AttendeeToAdd.Data.PostalCode"></InputText>
+                            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => AttendeeToAdd.Data.PostalCode)" />
+                            <span class="focus-input2" data-placeholder="POSTAL CODE"></span>
+                        </div>
+
+
+                        <div class="wrap-input2 validate-input">
+                            <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@AttendeeToAdd.Data.StreetName"></InputText>
+                            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => AttendeeToAdd.Data.StreetName)" />
+                            <span class="focus-input2" data-placeholder="STEET NAME"></span>
+                        </div>
+
+
+                        <div class="wrap-input2 validate-input">
+                            <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@AttendeeToAdd.Data.StreetNumber"></InputText>
+                            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => AttendeeToAdd.Data.StreetNumber)" />
+                            <span class="focus-input2" data-placeholder="STREET NUMBER"></span>
+                        </div>
+
+
+                        <div class="wrap-input2 validate-input">
+                            <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@AttendeeToAdd.Data.TelephoneNumber"></InputText>
+                            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => AttendeeToAdd.Data.TelephoneNumber)" />
+                            <span class="focus-input2" data-placeholder="TELEPHONE NUMBER"></span>
                         </div>
 
                         <div class="container-contact2-form-btn">
