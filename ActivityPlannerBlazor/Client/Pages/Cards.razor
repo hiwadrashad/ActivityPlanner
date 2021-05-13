@@ -6,20 +6,20 @@
     <style>
         @@import url('https://fonts.googleapis.com/css?family=Roboto|Sriracha&display=swap');
 
-        /** {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {*/
-        /*    display: flex;
+        body {
+            display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             font-family: "Roboto", arial, sans-serif;
-            color: #222;*/
-        /*}
+            color: #222;
+        }
 
         #login-container {
             margin: 1em;
@@ -174,10 +174,10 @@
             #sidebar {
                 position: absolute !important;
                 top: 0;
-                left: 0;*/
-                /*            transform: translate(0px, 150px);
-    */
-            /*}
+                left: 0;
+                            transform: translate(0px, 150px);
+
+            }
         }
 
         #content {
@@ -188,10 +188,11 @@
             background-image: url('/Cards/Images/naturebackground.jpg');
             background-size: cover;
             background-attachment: fixed;
-        }*/
-
+        }
 .sidenav {
-  height: 70%;
+  margin-left: 15px;
+  margin-top: 50px;
+  height: 55%;
   width: 200px;
   position: fixed;
   z-index: 1;
@@ -203,14 +204,15 @@
 }
 
         .sidenav a {
-            padding: 6px 8px 6px 16px;
+            padding: 10px 10px 10px 10px;
             text-decoration: none;
-            font-size: medium;
-            color: #818181;
             display: block;
+        }
+        .underline {
+            color: #818181;
+            font-size: medium;
             border-bottom: 1px solid grey;
         }
-
 .sidenav a:hover {
   color: #f1f1f1;
 }
@@ -222,18 +224,77 @@
   padding: 0px 10px;
 }
 
+        .logo {
+            color: white !important;
+        }
+
+        @@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 @@media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
 
+        h3 {
+        color: white !important;
+        margin-top: 50px;
+        margin-left: 20px;
+        }
+
+        h1 {
+
+        margin-left: 20px;
+        }
+        .subscribe-form {
+
+        transform: scale(0.8);
+        }
+
+        .copyrights {
+            color: #818181;
+            font-size: medium;
+            width: 150px;
+            margin-left: 20px;
+            margin-top: 50px;
+        }
+
+        @@media screen and (max-width: 1367px) {
+            .sidenav {
+            overflow: hidden;
+            height: 80%;
+            margin-top: 80px;
+            }
+        }
+
+        #content {
+        float: left !important;
+        width: 1000px !important;
+        }
+        .wrapper {
+            float: left !important;
+            width: 1000px !important;
+        }
+        .cardcontainer {
+            float: left !important;
+            width: 1000px !important;
+        }
     </style>
 </head>
 <body>
     <div class="sidenav">
-        <a href="#"><span class="fa fa-user mr-3"></span>Acquaintances</a>
-        <a href="#"><span class="fa fa-sticky-note mr-3"></span>Appointments</a>
+        <h1><a href="#" class="logo">Activity Planner</a></h1>
+        <a class="underline" href="#"><span class="fa fa-user mr-3"></span>Acquaintances</a>
+        <a class="underline" href="#"><span class="fa fa-sticky-note mr-3"></span>Appointments</a>
+        <h3 class="h6 mb-3">Subscribe for newsletter</h3>
+        <form action="#" class="subscribe-form">
+            <div class="form-group d-flex">
+                <div class="icon"><span class="icon-paper-plane"></span></div>
+                <input type="text" class="form-control" placeholder="Enter Email Address">
+            </div>
+        </form>
+        <div class="copyrights">
+            Copyright ©2021 All rights reserved
+        </div>
     </div>
 
         <div class="main">
@@ -267,7 +328,7 @@
                                 </div>
                             </footer>
                         </div>
-                        <div id="login-container">
+                        @*<div id="login-container">
                             <div class="profile-img"></div>
                             <h1>
                                 Maddie
@@ -316,107 +377,8 @@
                                     <p></p>
                                 </div>
                             </footer>
-                        </div>
-                        <div id="login-container">
-                            <div class="profile-img"></div>
-                            <h1>
-                                Maddie
-                            </h1>
-                            <div class="description">
-                                Maddie is a front end web developer in New York. She has worked in the field for 10 years now. Check out her projects in the links below. She is available for hire as well.
-                            </div>
-                            <div class="social">
-                                <a>GitHub</a>
-                                <a>Twitter</a>
-                                <a>LinkedIn</a>
-                            </div>
-                            <button class="m-3">Hire Me</button>
-                            <footer>
-                                <div class="likes">
-                                    <p><i class=''></i></p>
-                                    <p></p>
-                                </div>
-                                <div class="projects">
-                                    <p></p>
-                                    <p></p>
-                                </div>
-                            </footer>
-                        </div>
-                        <div id="login-container">
-                            <div class="profile-img"></div>
-                            <h1>
-                                Maddie
-                            </h1>
-                            <div class="description">
-                                Maddie is a front end web developer in New York. She has worked in the field for 10 years now. Check out her projects in the links below. She is available for hire as well.
-                            </div>
-                            <div class="social">
-                                <a>GitHub</a>
-                                <a>Twitter</a>
-                                <a>LinkedIn</a>
-                            </div>
-                            <button class="m-3">Hire Me</button>
-                            <footer>
-                                <div class="likes">
-                                    <p><i class=''></i></p>
-                                    <p></p>
-                                </div>
-                                <div class="projects">
-                                    <p></p>
-                                    <p></p>
-                                </div>
-                            </footer>
-                        </div>
-                        <div id="login-container">
-                            <div class="profile-img"></div>
-                            <h1>
-                                Maddie
-                            </h1>
-                            <div class="description">
-                                Maddie is a front end web developer in New York. She has worked in the field for 10 years now. Check out her projects in the links below. She is available for hire as well.
-                            </div>
-                            <div class="social">
-                                <a>GitHub</a>
-                                <a>Twitter</a>
-                                <a>LinkedIn</a>
-                            </div>
-                            <button class="m-3">Hire Me</button>
-                            <footer>
-                                <div class="likes">
-                                    <p><i class=''></i></p>
-                                    <p></p>
-                                </div>
-                                <div class="projects">
-                                    <p></p>
-                                    <p></p>
-                                </div>
-                            </footer>
-                        </div>
-                        <div id="login-container">
-                            <div class="profile-img"></div>
-                            <h1>
-                                Maddie
-                            </h1>
-                            <div class="description">
-                                Maddie is a front end web developer in New York. She has worked in the field for 10 years now. Check out her projects in the links below. She is available for hire as well.
-                            </div>
-                            <div class="social">
-                                <a>GitHub</a>
-                                <a>Twitter</a>
-                                <a>LinkedIn</a>
-                            </div>
-                            <button class="m-3">Hire Me</button>
-                            <footer>
-                                <div class="likes">
-                                    <p><i class=''></i></p>
-                                    <p></p>
-                                </div>
-                                <div class="projects">
-                                    <p></p>
-                                    <p></p>
-                                </div>
-                            </footer>
-                        </div>
+                        </div>*@
+                      
 
                     </div>
                 </div>
