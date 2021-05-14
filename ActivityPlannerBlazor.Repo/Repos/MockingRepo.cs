@@ -41,20 +41,36 @@ namespace ActivityPlannerBlazor.Repo.Repos
                    Data = new PersonalDataDTO()
                    {
                     Email = "test@hotmail.com",
-                    Name = "test",
-                    PostalCode = "test",
-                    StreetName = "test",
-                    StreetNumber = "test",
-                    TelephoneNumber = "test"
+                    Name = "Lisa",
+                    PostalCode = "3525CL",
+                    StreetName = "Hammingway",
+                    StreetNumber = "98",
+                    TelephoneNumber = "21-37551724"
                    },
                   Appointments = new List<AppointmentDTO>
                   {
                     new AppointmentDTO
                     {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York",
+                       Location = "New York",
+                       Name = "Lisa's Study Group",
+                       Organizers = new List<OrganizerDTO>(){}
+                    },
 
-                    }
+                  },
+                  Acquaintances =  new List<AttendeeDTO>()
+                  { 
+                     new AttendeeDTO
+                     { 
+                     
+                     }
                   }
                }
+
             };
 
             _attendees = new List<AttendeeDTO>();
