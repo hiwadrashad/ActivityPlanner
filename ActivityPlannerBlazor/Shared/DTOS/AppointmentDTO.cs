@@ -29,6 +29,6 @@ namespace ActivityPlannerBlazor.Shared.DTOS
         [Display(Name = "Amount of acceptances for sending final notifications")]
         public int AcceptanceRate { get; set; }
         [Display(Name = "Accepted invite?")]
-        public Tuple<AttendeeDTO, bool> AcceptedOrNot { get; set; }
+        public List<Tuple<AttendeeDTO, bool>> AcceptedOrNot { get; set; } = new List<Tuple<AttendeeDTO, bool>>();
     }
 }

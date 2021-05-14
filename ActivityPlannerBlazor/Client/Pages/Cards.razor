@@ -332,20 +332,22 @@ else
 
     <div class="main">
 
-
+@foreach (var item in CurrentOrganizer.Appointments)
+{
         <div id="login-container">
             <div class="profile-img"></div>
             <h1>
-                @CurrentOrganizer.Appointments.FirstOrDefault().Name
+                @item.Name
             </h1>
             <div class="description">
-                @CurrentOrganizer.Appointments.FirstOrDefault().Description
+                @item.Description
             </div>
             <div class="social">
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().ApproximateDate</a>
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().Category</a>
+                <a>@item.ApproximateDate</a>
+                <a>@item.Category</a>
             </div>
-            <button class="m-3 EditButton">Edit</button>
+            <a href=""></a>
+            <button onclick="window.location.href='/appointmentdetails/@item.id'" class="m-3 EditButton">Edit</button>
             <button class="m-3 DeleteButton">Delete</button>
             <button class="m-3 DetailsButton">Details</button>
             <footer>
@@ -359,246 +361,7 @@ else
                 </div>
             </footer>
         </div>
-
-        <div id="login-container">
-            <div class="profile-img"></div>
-            <h1>
-                @CurrentOrganizer.Appointments.FirstOrDefault().Name
-            </h1>
-            <div class="description">
-                @CurrentOrganizer.Appointments.FirstOrDefault().Description
-            </div>
-            <div class="social">
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().ApproximateDate</a>
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().Category</a>
-            </div>
-            <button class="m-3 EditButton">Edit</button>
-            <button class="m-3 DeleteButton">Delete</button>
-            <button class="m-3 DetailsButton">Details</button>
-            <footer>
-                <div class="likes">
-                    <p><i class=''></i></p>
-                    <p></p>
-                </div>
-                <div class="projects">
-                    <p></p>
-                    <p></p>
-                </div>
-            </footer>
-        </div>
-        <div id="login-container">
-            <div class="profile-img"></div>
-            <h1>
-                @CurrentOrganizer.Appointments.FirstOrDefault().Name
-            </h1>
-            <div class="description">
-                @CurrentOrganizer.Appointments.FirstOrDefault().Description
-            </div>
-            <div class="social">
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().ApproximateDate</a>
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().Category</a>
-            </div>
-            <button class="m-3 EditButton">Edit</button>
-            <button class="m-3 DeleteButton">Delete</button>
-            <button class="m-3 DetailsButton">Details</button>
-            <footer>
-                <div class="likes">
-                    <p><i class=''></i></p>
-                    <p></p>
-                </div>
-                <div class="projects">
-                    <p></p>
-                    <p></p>
-                </div>
-            </footer>
-        </div>
-        <div id="login-container">
-            <div class="profile-img"></div>
-            <h1>
-                @CurrentOrganizer.Appointments.FirstOrDefault().Name
-            </h1>
-            <div class="description">
-                @CurrentOrganizer.Appointments.FirstOrDefault().Description
-            </div>
-            <div class="social">
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().ApproximateDate</a>
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().Category</a>
-            </div>
-            <button class="m-3 EditButton">Edit</button>
-            <button class="m-3 DeleteButton">Delete</button>
-            <button class="m-3 DetailsButton">Details</button>
-            <footer>
-                <div class="likes">
-                    <p><i class=''></i></p>
-                    <p></p>
-                </div>
-                <div class="projects">
-                    <p></p>
-                    <p></p>
-                </div>
-            </footer>
-        </div>
-        <div id="login-container">
-            <div class="profile-img"></div>
-            <h1>
-                @CurrentOrganizer.Appointments.FirstOrDefault().Name
-            </h1>
-            <div class="description">
-                @CurrentOrganizer.Appointments.FirstOrDefault().Description
-            </div>
-            <div class="social">
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().ApproximateDate</a>
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().Category</a>
-            </div>
-            <button class="m-3 EditButton">Edit</button>
-            <button class="m-3 DeleteButton">Delete</button>
-            <button class="m-3 DetailsButton">Details</button>
-            <footer>
-                <div class="likes">
-                    <p><i class=''></i></p>
-                    <p></p>
-                </div>
-                <div class="projects">
-                    <p></p>
-                    <p></p>
-                </div>
-            </footer>
-        </div>
-
-
-        <div id="login-container">
-            <div class="profile-img"></div>
-            <h1>
-                @CurrentOrganizer.Appointments.FirstOrDefault().Name
-            </h1>
-            <div class="description">
-                @CurrentOrganizer.Appointments.FirstOrDefault().Description
-            </div>
-            <div class="social">
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().ApproximateDate</a>
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().Category</a>
-            </div>
-            <button class="m-3 EditButton">Edit</button>
-            <button class="m-3 DeleteButton">Delete</button>
-            <button class="m-3 DetailsButton">Details</button>
-            <footer>
-                <div class="likes">
-                    <p><i class=''></i></p>
-                    <p></p>
-                </div>
-                <div class="projects">
-                    <p></p>
-                    <p></p>
-                </div>
-            </footer>
-        </div>
-
-        <div id="login-container">
-            <div class="profile-img"></div>
-            <h1>
-                @CurrentOrganizer.Appointments.FirstOrDefault().Name
-            </h1>
-            <div class="description">
-                @CurrentOrganizer.Appointments.FirstOrDefault().Description
-            </div>
-            <div class="social">
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().ApproximateDate</a>
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().Category</a>
-            </div>
-            <button class="m-3 EditButton">Edit</button>
-            <button class="m-3 DeleteButton">Delete</button>
-            <button class="m-3 DetailsButton">Details</button>
-            <footer>
-                <div class="likes">
-                    <p><i class=''></i></p>
-                    <p></p>
-                </div>
-                <div class="projects">
-                    <p></p>
-                    <p></p>
-                </div>
-            </footer>
-        </div>
-        <div id="login-container">
-            <div class="profile-img"></div>
-            <h1>
-                @CurrentOrganizer.Appointments.FirstOrDefault().Name
-            </h1>
-            <div class="description">
-                @CurrentOrganizer.Appointments.FirstOrDefault().Description
-            </div>
-            <div class="social">
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().ApproximateDate</a>
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().Category</a>
-            </div>
-            <button class="m-3 EditButton">Edit</button>
-            <button class="m-3 DeleteButton">Delete</button>
-            <button class="m-3 DetailsButton">Details</button>
-            <footer>
-                <div class="likes">
-                    <p><i class=''></i></p>
-                    <p></p>
-                </div>
-                <div class="projects">
-                    <p></p>
-                    <p></p>
-                </div>
-            </footer>
-        </div>
-        <div id="login-container">
-            <div class="profile-img"></div>
-            <h1>
-                @CurrentOrganizer.Appointments.FirstOrDefault().Name
-            </h1>
-            <div class="description">
-                @CurrentOrganizer.Appointments.FirstOrDefault().Description
-            </div>
-            <div class="social">
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().ApproximateDate</a>
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().Category</a>
-            </div>
-            <button class="m-3 EditButton">Edit</button>
-            <button class="m-3 DeleteButton">Delete</button>
-            <button class="m-3 DetailsButton">Details</button>
-            <footer>
-                <div class="likes">
-                    <p><i class=''></i></p>
-                    <p></p>
-                </div>
-                <div class="projects">
-                    <p></p>
-                    <p></p>
-                </div>
-            </footer>
-        </div>
-        <div id="login-container">
-            <div class="profile-img"></div>
-            <h1>
-                @CurrentOrganizer.Appointments.FirstOrDefault().Name
-            </h1>
-            <div class="description">
-                @CurrentOrganizer.Appointments.FirstOrDefault().Description
-            </div>
-            <div class="social">
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().ApproximateDate</a>
-                <a>@CurrentOrganizer.Appointments.FirstOrDefault().Category</a>
-            </div>
-            <button class="m-3 EditButton">Edit</button>
-            <button class="m-3 DeleteButton">Delete</button>
-            <button class="m-3 DetailsButton">Details</button>
-            <footer>
-                <div class="likes">
-                    <p><i class=''></i></p>
-                    <p></p>
-                </div>
-                <div class="projects">
-                    <p></p>
-                    <p></p>
-                </div>
-            </footer>
-        </div>
-
-
+}
     </div>
 
 
@@ -622,5 +385,9 @@ else
     protected override async Task OnInitializedAsync()
     {
         CurrentOrganizer = await CurrentOrganizerDataService.GetCurrentUser();
+        if (!CurrentOrganizer.Appointments.Any())
+        { 
+        
+        }
     }
 }

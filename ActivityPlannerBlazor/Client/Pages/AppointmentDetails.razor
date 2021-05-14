@@ -1,0 +1,174 @@
+﻿@page "/appointmentdetails"
+@page "/appointmentdetails/{id}"
+@using ActivityPlannerBlazor.Client.Interfaces;
+@using ActivityPlannerBlazor.Shared.DTOS;
+@using Microsoft.AspNetCore.Components;
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Threading.Tasks;
+<style>
+    body {
+        overflow-x: hidden;
+        transform: scale(1.03);
+    }
+
+    nav {
+        transform: translateY(15px);
+    }
+
+    @@media screen and (min-width: 1367px) {
+
+        .scaleeverything {
+            width: 105% !important;
+            position: relative !important;
+            transform: scale(1.2);
+            /*         transform: translate(-50px,-19px);
+        */
+        }
+
+        .wrap-contact2 {
+            transform: scale(0.7) !important;
+        }
+    }
+
+    @@media screen and (max-width: 1367px) {
+
+        .scaleeverything {
+            width: 105% !important;
+            position: relative !important;
+            transform: scale(1.05);
+            /*         transform: translate(-50px,-19px);
+        */
+        }
+
+        .wrap-contact2 {
+            transform: scale(0.65) !important;
+        }
+    }
+</style>
+<head>
+    <title>Contact V2</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="/Form/images/icons/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/Form/vendor/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/Form/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/Form/vendor/animate/animate.css">
+
+    <link rel="stylesheet" type="text/css" href="/Form/vendor/css-hamburgers/hamburgers.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/Form/vendor/select2/select2.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/Form/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/Form/css/main.css">
+</head>
+@if (CurrentAppointment == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <body>
+
+        <div class="bg-contact2 scaleeverything" style="background-image: url('/Form/images/bg-01.jpg');">
+            <div class="container-contact2">
+                <div class="wrap-contact2">
+                    <span class="contact2-form-title">
+                        Appointment details
+                    </span>
+                    <label class="col-sm-4 col-form-label">Name</label>
+                    <div class="wrap-input2 validate-input">
+                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Name</label>
+                    </div>
+                    <label class="col-sm-4 col-form-label">Category</label>
+                    <div class="wrap-input2 validate-input">
+                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Category</label>
+                    </div>
+                    <label class="col-sm-4 col-form-label">Description</label>
+                    <div class="wrap-input2 validate-input">
+                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Description</label>
+                    </div>
+                    @if (CurrentAppointment.StartDate != default(DateTime))
+                    {
+                        <label class="col-sm-4 col-form-label">Start date</label>
+                        <div class="wrap-input2 validate-input">
+                            <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.StartDate</label>
+                        </div>
+                    }
+                    @if (CurrentAppointment.EndDate != default(DateTime))
+                    {
+                        <label class="col-sm-4 col-form-label">End date</label>
+                        <div class="wrap-input2 validate-input">
+                            <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.EndDate</label>
+                        </div>
+                    }
+                    <label class="col-sm-4 col-form-label">Location</label>
+                    <div class="wrap-input2 validate-input">
+                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Location</label>
+                    </div>
+                    <label class="col-sm-4 col-form-label">Acceptance rate</label>
+                    <div class="wrap-input2 validate-input">
+                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.AcceptanceRate</label>
+                    </div>
+                    @if (CurrentAppointment.AcceptedOrNot.Any())
+                    {
+                        @foreach (var item in CurrentAppointment.AcceptedOrNot)
+                        {
+                            <label class="col-sm-4 col-form-label">Accepted or not</label>
+                            <div class="wrap-input2 validate-input">
+                                <label id="initial" class="input2" type="text" name="name">@item.Item1.Data.Name</label>
+                                <label id="initial" class="input2" type="text" name="name">@item.Item2.ToString()</label>
+                            </div>
+                        }
+                    }
+                    <label class="col-sm-4 col-form-label">Approximate date</label>
+                    <div class="wrap-input2 validate-input">
+                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.ApproximateDate</label>
+                    </div>
+                    @if (CurrentAppointment.Attendees.Any())
+                    {
+                        @foreach (var item in CurrentAppointment.Attendees)
+                        {
+                            <label class="col-sm-4 col-form-label">Attendees</label>
+                            <div class="wrap-input2 validate-input">
+                                <label id="initial" class="input2" type="text" name="name">@item.Data.Name</label>
+                            </div>
+                        }
+                    }
+                    <label class="col-sm-4 col-form-label">Main organizer</label>
+                    <div class="wrap-input2 validate-input">
+                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.MainOrganizer.Data.Name</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </body>
+}
+
+@code {
+    [Inject]
+    public ICurrentOrganizerDataService CurrentOrganizerDataService { get; set; }
+
+    [Parameter]
+    public string id { get; set; }
+
+    public OrganizerDTO CurrentOrganizer { get; set; } = new OrganizerDTO() { };
+
+    public AppointmentDTO CurrentAppointment { get; set; } = new AppointmentDTO { };
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        CurrentOrganizer = await CurrentOrganizerDataService.GetCurrentUser(); ;
+        CurrentAppointment = CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault();
+    }
+}
