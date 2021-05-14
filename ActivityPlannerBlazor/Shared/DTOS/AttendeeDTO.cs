@@ -8,5 +8,6 @@ namespace ActivityPlannerBlazor.Shared.DTOS
     {
         public List<AcceptedInviteDTO> AcceptedInvites { get; set; } = new List<AcceptedInviteDTO>();
         public List<NotAcceptedInviteDTO> NotAcceptedInvites { get; set; } = new List<NotAcceptedInviteDTO>();
+        public List<PendingInviteDTO> PendingInvites { get; set; } = new List<PendingInviteDTO>();
     }
 }

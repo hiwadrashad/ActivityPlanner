@@ -58,8 +58,8 @@ namespace ActivityPlannerBlazor.Repo.Repos
                        Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
                        Location = "New York",
                        Name = "Lisa's Study",
-                       Attendees = 
-                       Organizers = new List<OrganizerDTO>(){}
+                       Organizers = new List<OrganizerDTO>(){},
+                       
                     },
                     new AppointmentDTO
                     {
@@ -98,17 +98,21 @@ namespace ActivityPlannerBlazor.Repo.Repos
                   },
                   Acquaintances =  new List<AttendeeDTO>()
                   { 
-                     new AttendeeDTO
-                     { 
-                     
-                     }
+                      new AttendeeDTO()
+                      { 
+                       id = Guid.NewGuid().ToString(),
+                      }
                   }
                }
 
             };
 
-            _attendees = new List<AttendeeDTO>();
-            _appointments = new List<AppointmentDTO>();
+            _attendees = new List<AttendeeDTO>()
+            { 
+            };
+            _appointments = new List<AppointmentDTO>()
+            {
+            };
         }
 
         public bool AddAppointment(AppointmentDTO DTO)

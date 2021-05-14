@@ -1,3 +1,5 @@
+using ActivityPlannerBlazor.Repo.Interfaces;
+using ActivityPlannerBlazor.Repo.Repos;
 using ActivityPlannerBlazor.Server.Data;
 using ActivityPlannerBlazor.Server.Models;
 using Microsoft.AspNetCore.Authentication;
@@ -20,6 +22,7 @@ namespace ActivityPlannerBlazor.Server
     {
         public Startup(IConfiguration configuration)
         {
+            IMockingRepo _repo = MockingRepo.GetMockingRepo();
             Configuration = configuration;
         }
 
