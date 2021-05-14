@@ -10,7 +10,9 @@ namespace ActivityPlannerBlazor.Shared.DTOS
     {
         [Key]
         public string id { get; set; }
+        [MaxLength(12)]
         public string Name { get; set; }
+        [MaxLength(172)]
         public string Description { get; set; }
         [Display(Name = "Organizer")]
         public OrganizerDTO MainOrganizer { get; set; } = new OrganizerDTO();

@@ -55,9 +55,9 @@ namespace ActivityPlannerBlazor.Repo.Repos
                        AcceptanceRate = 3,
                        ApproximateDate = Shared.Enums.Season.Summer,
                        Category = Shared.Enums.Category.Study,
-                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York",
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
                        Location = "New York",
-                       Name = "Lisa's Study Group",
+                       Name = "Lisa's Study",
                        Organizers = new List<OrganizerDTO>(){}
                     },
 
