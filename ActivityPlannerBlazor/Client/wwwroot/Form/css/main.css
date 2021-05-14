@@ -2,8 +2,7 @@
 
 
 
-/*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
+
 
 @font-face {
   font-family: Poppins-Regular;
@@ -22,10 +21,6 @@
 
 
 
-
-/*//////////////////////////////////////////////////////////////////
-[ RESTYLE TAG ]*/
-
 * {
 	margin: 0px; 
 	padding: 0px; 
@@ -37,7 +32,6 @@ body, html {
 	font-family: Poppins-Regular, sans-serif;
 }
 
-/*---------------------------------------------*/
 a {
 	font-family: Poppins-Regular;
 	font-size: 14px;
@@ -59,7 +53,7 @@ a:hover {
 	color: #57b846;
 }
 
-/*---------------------------------------------*/
+
 h1,h2,h3,h4,h5,h6 {
 	margin: 0px;
 }
@@ -78,7 +72,7 @@ ul, li {
 }
 
 
-/*---------------------------------------------*/
+
 input {
 	outline: none;
 	border: none;
@@ -113,7 +107,7 @@ textarea:-moz-placeholder { color: #999999; }
 textarea::-moz-placeholder { color: #999999; }
 textarea:-ms-input-placeholder { color: #999999; }
 
-/*---------------------------------------------*/
+
 button {
 	outline: none !important;
 	border: none;
@@ -131,9 +125,6 @@ iframe {
 
 
 
-
-/*//////////////////////////////////////////////////////////////////
-[ Contact 2 ]*/
 .bg-contact2 {
   width: 100%;  
   background-repeat: no-repeat;
@@ -153,11 +144,11 @@ iframe {
 	justify-content: center;
 	align-items: center;
 	padding: 15px;
-	background: rgba(98, 202, 251, 0.73);
+/*	background: rgba(98, 202, 251, 0.73);
 	background: -webkit-linear-gradient(45deg, rgba(98, 202, 251, 0.73), rgba(229,57,53,0.8));
 	background: -o-linear-gradient(45deg, rgba(98, 202, 251, 0.73), rgba(229,57,53,0.8));
 	background: -moz-linear-gradient(45deg, rgba(98, 202, 251, 0.73), rgba(229,57,53,0.8));
-	background: linear-gradient(45deg, rgba(98, 202, 251, 0.73), rgba(229,57,53,0.8));
+	background: linear-gradient(45deg, rgba(98, 202, 251, 0.73), rgba(229,57,53,0.8));*/
 }
 
 .wrap-contact2 {
@@ -169,8 +160,6 @@ iframe {
 }
 
 
-/*------------------------------------------------------------------
-[  ]*/
 
 .contact2-form {
   width: 100%;
@@ -187,9 +176,6 @@ iframe {
 }
 
 
-
-/*------------------------------------------------------------------
-[  ]*/
 
 .wrap-input2 {
   width: 100%;
@@ -258,7 +244,6 @@ iframe {
   transition: all 0.4s;
 }
 
-/*---------------------------------------------*/
 input.input2 {
   height: 45px;
 }
@@ -295,8 +280,7 @@ textarea.input2 + .focus-input2::after {
   width: 100%;
 }
 
-/*------------------------------------------------------------------
-[ Button ]*/
+
 .container-contact2-form-btn {
   display: -webkit-box;
   display: -webkit-flex;
@@ -363,8 +347,7 @@ textarea.input2 + .focus-input2::after {
   left: 0;
 }
 
-/*------------------------------------------------------------------
-[ Responsive ]*/
+
 
 @media (max-width: 576px) {
   .wrap-contact2 {
@@ -374,8 +357,6 @@ textarea.input2 + .focus-input2::after {
 
 
 
-/*------------------------------------------------------------------
-[ Alert validate ]*/
 
 .validate-input {
   position: relative;

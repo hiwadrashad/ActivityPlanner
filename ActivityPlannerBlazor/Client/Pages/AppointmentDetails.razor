@@ -46,6 +46,88 @@
             transform: scale(0.65) !important;
         }
     }
+    .sidenav {
+        font-family: 'Roboto', sans-serif;
+        opacity: 0.9;
+        margin-left: 250px;
+        margin-top: 50px;
+        height: 45% !important;
+        width: 200px;
+        position: fixed !important;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+
+        .sidenav a {
+            padding: 10px 10px 10px 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+            .sidenav a:hover {
+                color: #f1f1f1;
+            }
+
+    @@media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+    }
+
+    @@media screen and (min-width: 1367px) {
+        .sidenav {
+            overflow-x: hidden;
+            height: 80%;
+            margin-top: 100px;
+            transform: translateX(150px) !important;
+        }
+
+    }
+
+    @@media screen and (max-width: 1367px) {
+        .sidenav {
+            overflow-x: hidden;
+            height: 80%;
+            margin-top: 80px;
+        }
+
+    }
+    .copyrights {
+        color: #818181;
+        font-size: medium;
+        width: 150px;
+        margin-left: 20px;
+        margin-top: 50px;
+    }
+
+    h3 {
+        color: white !important;
+        margin-top: 50px;
+        margin-left: 20px;
+    }
+
+    h1 {
+        margin-left: 20px;
+    }
+
+    .subscribe-form {
+        transform: scale(0.8);
+    }
+
+
+    .logo {
+        font-size: large;
+    }
+    @@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
 </style>
 <head>
     <title>Contact V2</title>
@@ -73,85 +155,99 @@
 }
 else
 {
-    <body>
-
-        <div class="bg-contact2 scaleeverything" style="background-image: url('/Form/images/bg-01.jpg');">
-            <div class="container-contact2">
-                <div class="wrap-contact2">
-                    <span class="contact2-form-title">
-                        Appointment details
-                    </span>
-                    <label class="col-sm-4 col-form-label">Name</label>
+<body>
+    <div class="sidenav">
+        <h1><a href="#" class="logo">Activity Planner</a></h1>
+        <a class="underline" href="#"><span class="fa fa-user mr-3"></span>Acquaintances</a>
+        <a class="underline" href="#"><span class="fa fa-sticky-note mr-3"></span>Appointments</a>
+        <h3 class="h6 mb-3">Subscribe for newsletter</h3>
+        <form action="#" class="subscribe-form">
+            <div class="form-group d-flex">
+                <div class="icon"><span class="icon-paper-plane"></span></div>
+                <input type="text" class="form-control" placeholder="Enter Email Address">
+            </div>
+        </form>
+        <div class="copyrights">
+            Copyright ©2021 All rights reserved
+        </div>
+    </div>
+    <div class="bg-contact2 scaleeverything" style="        background-image: url('/Form/images/cityimage.jpg');">
+        <div class="container-contact2">
+            <div class="wrap-contact2">
+                <span class="contact2-form-title">
+                    Appointment details
+                </span>
+                <label class="col-sm-4 col-form-label">Name</label>
+                <div class="wrap-input2 validate-input">
+                    <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Name</label>
+                </div>
+                <label class="col-sm-4 col-form-label">Category</label>
+                <div class="wrap-input2 validate-input">
+                    <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Category</label>
+                </div>
+                <label class="col-sm-4 col-form-label">Description</label>
+                <div class="wrap-input2 validate-input">
+                    <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Description</label>
+                </div>
+                @if (CurrentAppointment.StartDate != default(DateTime))
+                {
+                    <label class="col-sm-4 col-form-label">Start date</label>
                     <div class="wrap-input2 validate-input">
-                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Name</label>
+                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.StartDate</label>
                     </div>
-                    <label class="col-sm-4 col-form-label">Category</label>
+                }
+                @if (CurrentAppointment.EndDate != default(DateTime))
+                {
+                    <label class="col-sm-4 col-form-label">End date</label>
                     <div class="wrap-input2 validate-input">
-                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Category</label>
+                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.EndDate</label>
                     </div>
-                    <label class="col-sm-4 col-form-label">Description</label>
-                    <div class="wrap-input2 validate-input">
-                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Description</label>
-                    </div>
-                    @if (CurrentAppointment.StartDate != default(DateTime))
+                }
+                <label class="col-sm-4 col-form-label">Location</label>
+                <div class="wrap-input2 validate-input">
+                    <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Location</label>
+                </div>
+                <label class="col-sm-4 col-form-label">Acceptance rate</label>
+                <div class="wrap-input2 validate-input">
+                    <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.AcceptanceRate</label>
+                </div>
+                @if (CurrentAppointment.AcceptedOrNot.Any())
+                {
+                    @foreach (var item in CurrentAppointment.AcceptedOrNot)
                     {
-                        <label class="col-sm-4 col-form-label">Start date</label>
+                        <label class="col-sm-4 col-form-label">Accepted or not</label>
                         <div class="wrap-input2 validate-input">
-                            <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.StartDate</label>
+                            <label id="initial" class="input2" type="text" name="name">@item.Item1.Data.Name</label>
+                            <label id="initial" class="input2" type="text" name="name">@item.Item2.ToString()</label>
                         </div>
                     }
-                    @if (CurrentAppointment.EndDate != default(DateTime))
+                }
+                <label class="col-sm-4 col-form-label">Approximate date</label>
+                <div class="wrap-input2 validate-input">
+                    <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.ApproximateDate</label>
+                </div>
+                @if (CurrentAppointment.Attendees.Any())
+                {
+                    @foreach (var item in CurrentAppointment.Attendees)
                     {
-                        <label class="col-sm-4 col-form-label">End date</label>
+                        <label class="col-sm-4 col-form-label">Attendees</label>
                         <div class="wrap-input2 validate-input">
-                            <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.EndDate</label>
+                            <label id="initial" class="input2" type="text" name="name">@item.Data.Name</label>
                         </div>
                     }
-                    <label class="col-sm-4 col-form-label">Location</label>
-                    <div class="wrap-input2 validate-input">
-                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Location</label>
-                    </div>
-                    <label class="col-sm-4 col-form-label">Acceptance rate</label>
-                    <div class="wrap-input2 validate-input">
-                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.AcceptanceRate</label>
-                    </div>
-                    @if (CurrentAppointment.AcceptedOrNot.Any())
-                    {
-                        @foreach (var item in CurrentAppointment.AcceptedOrNot)
-                        {
-                            <label class="col-sm-4 col-form-label">Accepted or not</label>
-                            <div class="wrap-input2 validate-input">
-                                <label id="initial" class="input2" type="text" name="name">@item.Item1.Data.Name</label>
-                                <label id="initial" class="input2" type="text" name="name">@item.Item2.ToString()</label>
-                            </div>
-                        }
-                    }
-                    <label class="col-sm-4 col-form-label">Approximate date</label>
-                    <div class="wrap-input2 validate-input">
-                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.ApproximateDate</label>
-                    </div>
-                    @if (CurrentAppointment.Attendees.Any())
-                    {
-                        @foreach (var item in CurrentAppointment.Attendees)
-                        {
-                            <label class="col-sm-4 col-form-label">Attendees</label>
-                            <div class="wrap-input2 validate-input">
-                                <label id="initial" class="input2" type="text" name="name">@item.Data.Name</label>
-                            </div>
-                        }
-                    }
-                    <label class="col-sm-4 col-form-label">Main organizer</label>
-                    <div class="wrap-input2 validate-input">
-                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.MainOrganizer.Data.Name</label>
-                    </div>
+                }
+                <label class="col-sm-4 col-form-label">Main organizer</label>
+                <div class="wrap-input2 validate-input">
+                    <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.MainOrganizer.Data.Name</label>
                 </div>
             </div>
         </div>
+    </div>
 
 
 
 
-    </body>
+</body>
 }
 
 @code {

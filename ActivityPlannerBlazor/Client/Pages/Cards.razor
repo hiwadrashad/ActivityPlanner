@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/cards"
     @using ActivityPlannerBlazor.Client.Interfaces;
     @using ActivityPlannerBlazor.Shared.DTOS;
     @using Microsoft.AspNetCore.Components;
@@ -176,9 +176,10 @@
         }
 
         .sidenav {
+            opacity: 0.85;
             margin-left: 15px;
             margin-top: 50px;
-            height: 55%;
+            height: 55% !important;
             width: 200px;
             position: fixed;
             z-index: 1;
@@ -195,11 +196,11 @@
                 display: block;
             }
 
-        .underline {
+/*        .underline {
             color: #818181;
             font-size: medium;
             border-bottom: 1px solid grey;
-        }
+        }*/
 
         .sidenav a:hover {
             color: #f1f1f1;
@@ -213,8 +214,9 @@
         }
 
         .logo {
-            color: white !important;
+        font-size: large ;
         }
+
 
         @@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
