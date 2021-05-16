@@ -37,7 +37,7 @@
         .scaleeverything {
             width: 105% !important;
             position: relative !important;
-            transform: scale(1.05);
+            transform: scale(1.05) translateY(-100px);
             /*         transform: translate(-50px,-19px);
         */
         }
@@ -90,15 +90,22 @@
             transform: translateX(150px) !important;
         }
 
+        .modelimage {
+            transform: scale(0.5) translate(2400px,0px);
+        }
+
     }
 
     @@media screen and (max-width: 1367px) {
         .sidenav {
             overflow-x: hidden;
             height: 80%;
-            margin-top: 80px;
+            margin-top: 120px;
+            margin-left: 100px;
         }
-
+        .modelimage {
+        transform: scale(0.4) translate(2000px,-200px);
+        }
     }
     .copyrights {
         color: #818181;
@@ -110,8 +117,8 @@
 
     h3 {
         color: white !important;
-        margin-top: 50px;
-        margin-left: 20px;
+        margin-top: 50px !important;
+        margin-left: 20px !important;
     }
 
     h1 {
@@ -132,8 +139,8 @@
     .modelimage {
     position: absolute;
     z-index: 999;
-    transform: scale(0.5) translate(2400px,0px);
     }
+
 </style>
 <head>
     <title>Contact V2</title>
@@ -165,8 +172,8 @@ else
     <img class="modelimage" src="/Form/images/modelimage.jpg" />
     <div class="sidenav">
         <h1><a href="#" class="logo">Activity Planner</a></h1>
-        <a class="underline" href="#"><span class="fa fa-user mr-3"></span>Acquaintances</a>
-        <a class="underline" href="#"><span class="fa fa-sticky-note mr-3"></span>Appointments</a>
+        <a class="underline" href="/"><span class="fa fa-home mr-3"></span>Home</a>
+        <a class="underline" href="/appointmentoverview"><span class="fa fa-sticky-note mr-3"></span>Appointments</a>
         <h3 class="h6 mb-3">Subscribe for newsletter</h3>
         <form action="#" class="subscribe-form">
             <div class="form-group d-flex">

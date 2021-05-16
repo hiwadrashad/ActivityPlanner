@@ -8,44 +8,142 @@
     @using System.Threading.Tasks;
 
     <style>
-                body {
-                    overflow-x: hidden;
-                    transform: scale(1.03);
-                }
+        body {
+            overflow-x: hidden;
+            transform: scale(1.03);
+        }
 
-                nav {
-                    transform: translateY(15px);
-                }
+        nav {
+            transform: translateY(15px);
+        }
 
-                @@media screen and (min-width: 1367px) {
+        @@media screen and (min-width: 1367px) {
 
-                    .scaleeverything {
-                        width: 105% !important;
-                        position: relative !important;
-                        transform: scale(1.2);
-                        /*         transform: translate(-50px,-19px);
+            .scaleeverything {
+                width: 105% !important;
+                position: relative !important;
+                transform: scale(1.2);
+                /*         transform: translate(-50px,-19px);
         */
-                    }
+            }
 
-                    .wrap-contact2 {
-                        transform: scale(0.7) !important;
-                    }
-                }
+            .wrap-contact2 {
+                transform: scale(0.7) !important;
+            }
+        }
 
-                @@media screen and (max-width: 1367px) {
+        @@media screen and (max-width: 1367px) {
 
-                    .scaleeverything {
-                        width: 105% !important;
-                        position: relative !important;
-                        transform: scale(1.05);
-                        /*         transform: translate(-50px,-19px);
+            .scaleeverything {
+                width: 105% !important;
+                position: relative !important;
+                transform: scale(1.05) translateY(-100px);
+                /*         transform: translate(-50px,-19px);
         */
-                    }
+            }
 
-                    .wrap-contact2 {
-                        transform: scale(0.65) !important;
-                    }
+            .wrap-contact2 {
+                transform: scale(0.65) !important;
+            }
+        }
+
+        .sidenav {
+            font-family: 'Roboto', sans-serif;
+            opacity: 0.9;
+            margin-left: 250px;
+            margin-top: 50px;
+            height: 45% !important;
+            width: 200px;
+            position: fixed !important;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+            .sidenav a {
+                padding: 10px 10px 10px 10px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .sidenav a:hover {
+                    color: #f1f1f1;
                 }
+
+        @@media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+                .sidenav a {
+                    font-size: 18px;
+                }
+        }
+
+        @@media screen and (min-width: 1367px) {
+            .sidenav {
+                overflow-x: hidden;
+                height: 80%;
+                margin-top: 100px;
+                transform: translateX(150px) !important;
+            }
+
+            .modelimage {
+                transform: scale(0.5) translate(2400px,0px);
+            }
+        }
+
+        @@media screen and (max-width: 1367px) {
+            .sidenav {
+                overflow-x: hidden;
+                height: 80%;
+                margin-top: 120px;
+                margin-left: 100px;
+            }
+
+            .modelimage {
+                transform: scale(0.4) translate(2000px,-200px);
+            }
+        }
+
+        .copyrights {
+            color: #818181;
+            font-size: medium;
+            width: 150px;
+            margin-left: 20px;
+            margin-top: 50px;
+        }
+
+        h3 {
+            color: white !important;
+            margin-top: 50px !important;
+            margin-left: 20px !important;
+        }
+
+        h1 {
+            margin-left: 20px;
+        }
+
+        .subscribe-form {
+            transform: scale(0.8);
+        }
+
+
+        .logo {
+            font-size: large;
+        }
+
+        @@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+
+        .modelimage {
+            position: absolute;
+            z-index: 999;
+        }
+
     </style>
     <html lang="en">
     <head>
@@ -70,7 +168,23 @@
     </head>
     <body>
 
-        <div class="bg-contact2 scaleeverything" style="background-image: url('/Form/images/bg-01.jpg');">
+        <img class="modelimage" src="/Form/images/modelimage.jpg" />
+        <div class="sidenav">
+            <h1><a href="#" class="logo">Activity Planner</a></h1>
+            <a class="underline" href="/"><span class="fa fa-home mr-3"></span>Home</a>
+            <a class="underline" href="/appointmentoverview"><span class="fa fa-sticky-note mr-3"></span>Appointments</a>
+            <h3 class="h6 mb-3">Subscribe for newsletter</h3>
+            <form action="#" class="subscribe-form">
+                <div class="form-group d-flex">
+                    <div class="icon"><span class="icon-paper-plane"></span></div>
+                    <input type="text" class="form-control" placeholder="Enter Email Address">
+                </div>
+            </form>
+            <div class="copyrights">
+                Copyright ©2021 All rights reserved
+            </div>
+        </div>
+        <div class="bg-contact2 scaleeverything" style="        background-image: url('/Form/images/simplebackground.png');">
             <div class="container-contact2">
                 <div class="wrap-contact2">
                     <EditForm Model="AttendeeToAdd" OnValidSubmit="AddAcquaintance" class="contact2-form validate-form">

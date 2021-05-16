@@ -42,5 +42,14 @@ namespace ActivityPlannerBlazor.Server.StaticResources
         {
             return CurrentOrganizer;
         }
+
+        public OrganizerDTO UpdateCurrentOrganizer(OrganizerDTO item)
+        {
+            _currentstaticuser.CurrentOrganizer.Acquaintances = item.Acquaintances;
+            _currentstaticuser.CurrentOrganizer.Appointments = item.Appointments;
+            _currentstaticuser.CurrentOrganizer.Data = item.Data;
+            _currentstaticuser.CurrentOrganizer.id = item.id;
+            return CurrentOrganizer;
+        }
     }
 }

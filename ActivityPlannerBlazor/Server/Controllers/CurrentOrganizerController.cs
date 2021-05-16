@@ -37,9 +37,28 @@ namespace ActivityPlannerBlazor.Server.Controllers
         }
 
         // PUT api/<CurrentOrganizerController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public IActionResult Update([FromBody] OrganizerDTO model)
         {
+            if (model == null)
+                return BadRequest();
+
+            //if (model.FirstName == string.Empty || mdel.LastName == string.Empty)
+            //{
+            //    ModelState.AddModelError("Name/FirstName", "The name or first name shouldn't be empty");
+            //}
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var employeeToUpdate = _staticresources.GetCurrentOrganizer();
+
+            if (employeeToUpdate == null)
+                return NotFound();
+
+            _staticresources.UpdateCurrentOrganizer(model);
+
+            return NoContent(); //success
         }
 
         // DELETE api/<CurrentOrganizerController>/5

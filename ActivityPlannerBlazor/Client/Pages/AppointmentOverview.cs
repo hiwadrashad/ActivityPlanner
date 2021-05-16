@@ -10,20 +10,20 @@ namespace ActivityPlannerBlazor.Client.Pages
 {
     public partial class AppointmentOverview
     {
-        [Inject]
-        public ICurrentOrganizerDataService CurrentOrganizerDataService { get; set; }
+        //[Inject]
+        //public ICurrentOrganizerDataService CurrentOrganizerDataService { get; set; }
 
-        [Inject]
-        public IOrganizerDataService OrganizerDataService { get; set; }
+        //[Inject]
+        //public IOrganizerDataService OrganizerDataService { get; set; }
 
-        [Inject]
-        public IAttendeeDataService AttendeeDataService { get; set; }
+        //[Inject]
+        //public IAttendeeDataService AttendeeDataService { get; set; }
 
-        public OrganizerDTO CurrentOrganizer { get; set; } = new OrganizerDTO() { };
+        //public OrganizerDTO CurrentOrganizer { get; set; } = new OrganizerDTO() { };
 
-        protected override async Task OnInitializedAsync()
-        {
-            CurrentOrganizer = await CurrentOrganizerDataService.GetCurrentUser();
-        }
+        //protected override async Task OnInitializedAsync()
+        //{
+        //    CurrentOrganizer = await CurrentOrganizerDataService.GetCurrentUser();
+        //}
     }
 }

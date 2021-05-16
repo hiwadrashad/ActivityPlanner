@@ -8,5 +8,6 @@ namespace ActivityPlannerBlazor.Repo.Interfaces
     public interface ICurrentUser
     {
         OrganizerDTO GetCurrentOrganizer();
+        OrganizerDTO UpdateCurrentOrganizer(OrganizerDTO item);
     }
 }

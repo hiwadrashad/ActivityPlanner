@@ -101,7 +101,82 @@ namespace ActivityPlannerBlazor.Repo.Repos
                       new AttendeeDTO()
                       { 
                        id = Guid.NewGuid().ToString(),
-                      }
+                       Data = new PersonalDataDTO()
+                       { 
+                        Name = "Emile",
+                        Email = "Emil@gmail.com",
+                        PostalCode = "4535KX",
+                        StreetName = "Northstreet",
+                        StreetNumber = "3",
+                        TelephoneNumber = "32432343243"
+                       }                        
+                      },
+                           new AttendeeDTO()
+                      {
+                       id = Guid.NewGuid().ToString(),
+                       Data = new PersonalDataDTO()
+                       {
+                        Name = "Emile",
+                        Email = "Emil@gmail.com",
+                        PostalCode = "4535KX",
+                        StreetName = "Northstreet",
+                        StreetNumber = "3",
+                        TelephoneNumber = "32432343243"
+                       }
+                      },
+                                new AttendeeDTO()
+                      {
+                       id = Guid.NewGuid().ToString(),
+                       Data = new PersonalDataDTO()
+                       {
+                        Name = "Emile",
+                        Email = "Emil@gmail.com",
+                        PostalCode = "4535KX",
+                        StreetName = "Northstreet",
+                        StreetNumber = "3",
+                        TelephoneNumber = "32432343243"
+                       }
+                      },
+                                     new AttendeeDTO()
+                      {
+                       id = Guid.NewGuid().ToString(),
+                       Data = new PersonalDataDTO()
+                       {
+                        Name = "Emile",
+                        Email = "Emil@gmail.com",
+                        PostalCode = "4535KX",
+                        StreetName = "Northstreet",
+                        StreetNumber = "3",
+                        TelephoneNumber = "32432343243"
+                       }
+                      },
+                                          new AttendeeDTO()
+                      {
+                       id = Guid.NewGuid().ToString(),
+                       Data = new PersonalDataDTO()
+                       {
+                        Name = "Emile",
+                        Email = "Emil@gmail.com",
+                        PostalCode = "4535KX",
+                        StreetName = "Northstreet",
+                        StreetNumber = "3",
+                        TelephoneNumber = "32432343243"
+                       }
+                      },
+                                               new AttendeeDTO()
+                      {
+                       id = Guid.NewGuid().ToString(),
+                       Data = new PersonalDataDTO()
+                       {
+                        Name = "Emile",
+                        Email = "Emil@gmail.com",
+                        PostalCode = "4535KX",
+                        StreetName = "Northstreet",
+                        StreetNumber = "3",
+                        TelephoneNumber = "32432343243"
+                       }
+                      },
+
                   }
                }
 

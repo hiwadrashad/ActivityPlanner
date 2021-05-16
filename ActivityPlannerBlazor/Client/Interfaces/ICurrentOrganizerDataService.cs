@@ -9,5 +9,6 @@ namespace ActivityPlannerBlazor.Client.Interfaces
     public interface ICurrentOrganizerDataService
     {
         Task<OrganizerDTO> GetCurrentUser();
+        Task Update(OrganizerDTO model);
     }
 }

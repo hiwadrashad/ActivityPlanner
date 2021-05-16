@@ -1,5 +1,315 @@
-﻿<h3>AppointmentEdit</h3>
+﻿@page "/appointmentedit"
+@page "/appointmentedit/{id}"
+@using ActivityPlannerBlazor.Client.Interfaces;
+@using ActivityPlannerBlazor.Shared.DTOS;
+@using Microsoft.AspNetCore.Components;
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Threading.Tasks;
+<style>
+    body {
+        overflow-x: hidden;
+        transform: scale(1.03);
+    }
+
+    nav {
+        transform: translateY(15px);
+    }
+
+    @@media screen and (min-width: 1367px) {
+
+        .scaleeverything {
+            width: 105% !important;
+            position: relative !important;
+            transform: scale(1.2);
+            /*         transform: translate(-50px,-19px);
+        */
+        }
+
+        .wrap-contact2 {
+            transform: scale(0.7) !important;
+        }
+    }
+
+    @@media screen and (max-width: 1367px) {
+
+        .scaleeverything {
+            width: 105% !important;
+            position: relative !important;
+            transform: scale(1.05) translateY(-100px);
+            /*         transform: translate(-50px,-19px);
+        */
+        }
+
+        .wrap-contact2 {
+            transform: scale(0.65) !important;
+        }
+    }
+
+    .sidenav {
+        font-family: 'Roboto', sans-serif;
+        opacity: 0.9;
+        margin-left: 250px;
+        margin-top: 50px;
+        height: 45% !important;
+        width: 200px;
+        position: fixed !important;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+
+        .sidenav a {
+            padding: 10px 10px 10px 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+            .sidenav a:hover {
+                color: #f1f1f1;
+            }
+
+    @@media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+    }
+
+    @@media screen and (min-width: 1367px) {
+        .sidenav {
+            overflow-x: hidden;
+            height: 80%;
+            margin-top: 100px;
+            transform: translateX(150px) !important;
+        }
+
+        .modelimage {
+            transform: scale(0.5) translate(2400px,0px);
+        }
+    }
+
+    @@media screen and (max-width: 1367px) {
+        .sidenav {
+            overflow: hidden;
+            height: 80%;
+            margin-top: 120px;
+            margin-left: 100px;
+        }
+
+        .modelimage {
+            transform: scale(0.4) translate(2000px,-200px);
+        }
+    }
+
+    .copyrights {
+        color: #818181;
+        font-size: medium;
+        width: 150px;
+        margin-left: 20px;
+        margin-top: 50px;
+    }
+
+    h3 {
+        color: white !important;
+        margin-top: 50px !important;
+        margin-left: 20px !important;
+    }
+
+    h1 {
+        margin-left: 20px;
+    }
+
+    .subscribe-form {
+        transform: scale(0.8);
+    }
+
+
+    .logo {
+        font-size: large;
+    }
+
+    @@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+
+    .modelimage {
+        position: absolute;
+        z-index: 999;
+    }
+</style>
+<html lang="en">
+<head>
+    <title>Contact V2</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="/Form/images/icons/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/Form/vendor/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/Form/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/Form/vendor/animate/animate.css">
+
+    <link rel="stylesheet" type="text/css" href="/Form/vendor/css-hamburgers/hamburgers.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/Form/vendor/select2/select2.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/Form/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/Form/css/main.css">
+</head>
+<body>
+
+    <img class="modelimage" src="/Form/images/modelimage.jpg" />
+    <div class="sidenav">
+        <h1><a href="#" class="logo">Activity Planner</a></h1>
+        <a class="underline" href="/"><span class="fa fa-home mr-3"></span>Home</a>
+        <a class="underline" href="/appointmentoverview"><span class="fa fa-sticky-note mr-3"></span>Appointments</a>
+        <h3 class="h6 mb-3">Subscribe for newsletter</h3>
+        <form action="#" class="subscribe-form">
+            <div class="form-group d-flex">
+                <div class="icon"><span class="icon-paper-plane"></span></div>
+                <input type="text" class="form-control" placeholder="Enter Email Address">
+            </div>
+        </form>
+        <div class="copyrights">
+            Copyright ©2021 All rights reserved
+        </div>
+    </div>
+    <div class="bg-contact2 scaleeverything" style="        background-image: url('/Form/images/simplebackground.png');">
+        <div class="container-contact2">
+            <div class="wrap-contact2">
+                <EditForm Model="CurrentAppointment" OnValidSubmit="UpdateAppointment" class="contact2-form validate-form">
+                    <span class="contact2-form-title">
+                        Fill in information
+                    </span>
+                    <label class="col-sm-4 col-form-label">Name</label>
+                    <div class="wrap-input2 validate-input">
+                        <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAppointment.Name"></InputText>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.Name)" />
+                        <span class="focus-input2"></span>
+                    </div>
+                    <label class="col-sm-4 col-form-label">Acceptance rate</label>
+                    <div class="wrap-input2 validate-input">
+                        <InputNumber id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAppointment.AcceptanceRate"></InputNumber>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.AcceptanceRate)" />
+                        <span class="focus-input2"></span>
+                    </div>
+                    <label class="col-sm-4 col-form-label">Approximate date</label>
+                    <div class="wrap-input2 validate-input">
+                        <InputSelect id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAppointment.ApproximateDate">
+                            @foreach (var item in Enum.GetValues(typeof(ActivityPlannerBlazor.Shared.Enums.Season)))
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </InputSelect>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.AcceptanceRate)" />
+                        <span class="focus-input2"></span>
+                    </div>
+                    <label class="col-sm-4 col-form-label">Category</label>
+                    <div class="wrap-input2 validate-input">
+                        <InputSelect id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAppointment.Category">
+                            @foreach (var item in Enum.GetValues(typeof(ActivityPlannerBlazor.Shared.Enums.Category)))
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </InputSelect>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.Category)" />
+                        <span class="focus-input2"></span>
+                    </div>
+                    <label class="col-sm-4 col-form-label">Description</label>
+                    <div class="wrap-input2 validate-input">
+                        <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAppointment.Description"></InputText>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.Description)" />
+                        <span class="focus-input2"></span>
+                    </div>
+                    <label class="col-sm-4 col-form-label">Start date</label>
+                    <div class="wrap-input2 validate-input">
+                        <InputDate id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAppointment.StartDate"></InputDate>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.StartDate)" />
+                        <span class="focus-input2"></span>
+                    </div>
+                    <label class="col-sm-4 col-form-label">End date</label>
+                    <div class="wrap-input2 validate-input">
+                        <InputDate id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAppointment.EndDate"></InputDate>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.EndDate)" />
+                        <span class="focus-input2"></span>
+                    </div>
+                    <label class="col-sm-4 col-form-label">Location</label>
+                    <div class="wrap-input2 validate-input">
+                        <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAppointment.Location"></InputText>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.Location)" />
+                        <span class="focus-input2"></span>
+                    </div>
+                    <div class="container-contact2-form-btn">
+                        <div class="wrap-contact2-form-btn">
+                            <div class="contact2-form-bgbtn"></div>
+                            <button type="submit" class="contact2-form-btn">
+                                Edit Appointment
+                            </button>
+                        </div>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
 
 @code {
+    [Inject]
+    public ICurrentOrganizerDataService CurrentOrganizerDataService { get; set; }
+    [Inject]
+    public IAppointmentDataService AppointmentsDataService { get; set; }
+    [Inject]
+    public IOrganizerDataService OrganizersDataService { get; set; }
+    [Inject]
+    public NavigationManager navmanager { get; set; }
 
+    [Parameter]
+    public string id { get; set; }
+
+    public OrganizerDTO CurrentOrganizer { get; set; } = new OrganizerDTO() { };
+
+    public AppointmentDTO CurrentAppointment { get; set; } = new AppointmentDTO { };
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        CurrentOrganizer = await CurrentOrganizerDataService.GetCurrentUser(); ;
+        CurrentAppointment = CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault();
+    }
+
+    public async void UpdateAppointment()
+    {
+        CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().id = CurrentAppointment.id;
+        CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().AcceptanceRate = CurrentAppointment.AcceptanceRate;
+        CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().AcceptedOrNot = CurrentAppointment.AcceptedOrNot;
+        CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().ApproximateDate = CurrentAppointment.ApproximateDate;
+        CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().Attendees = CurrentAppointment.Attendees;
+        CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().Category = CurrentAppointment.Category;
+        CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().Description = CurrentAppointment.Description;
+        CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().EndDate = CurrentAppointment.EndDate;
+        CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().Location = CurrentAppointment.Location;
+        CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().MainOrganizer = CurrentAppointment.MainOrganizer;
+        CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().Name = CurrentAppointment.Name;
+        CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().Organizers = CurrentAppointment.Organizers;
+        CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().StartDate = CurrentAppointment.StartDate;
+        await CurrentOrganizerDataService.Update(CurrentOrganizer);
+        await AppointmentsDataService.Update(CurrentAppointment);
+        await OrganizersDataService.Update(CurrentOrganizer);
+        navmanager.NavigateTo("/succesfullyeditedappointment"); 
+
+    }
 }
