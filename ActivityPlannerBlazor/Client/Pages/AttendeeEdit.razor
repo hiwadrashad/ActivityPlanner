@@ -1,5 +1,5 @@
-﻿@page "/appointmentdetails"
-@page "/appointmentdetails/{id}"
+﻿@page "/attendeeedit"
+@page "/attendeeedit/{id}"
 @using ActivityPlannerBlazor.Client.Interfaces;
 @using ActivityPlannerBlazor.Shared.DTOS;
 @using Microsoft.AspNetCore.Components;
@@ -7,13 +7,15 @@
 @using System.Collections.Generic;
 @using System.Linq;
 @using System.Threading.Tasks;
+
 <style>
     .modelimage {
-    position: fixed !important;
+        position: fixed !important;
     }
+
     body {
         overflow-x: hidden;
- /*       transform: scale(1.03);*/
+        /*       transform: scale(1.03);*/
     }
 
     nav {
@@ -26,8 +28,7 @@
             width: 105% !important;
             position: relative !important;
             transform: scale(1.2);
-                     transform: translate(-50px,-19px);
-        
+            transform: translate(-50px,-19px);
         }
 
         .wrap-contact2 {
@@ -41,14 +42,14 @@
             width: 105% !important;
             position: relative !important;
             transform: scale(1.05) translateY(-100px);
-                     transform: translate(-50px,-19px);
-        
+            transform: translate(-50px,-19px);
         }
 
         .wrap-contact2 {
             transform: scale(0.65) !important;
         }
     }
+
     .sidenav {
         font-family: 'Roboto', sans-serif;
         opacity: 0.9;
@@ -83,7 +84,6 @@
             .sidenav a {
                 font-size: 18px;
             }
-
     }
 
     @@media screen and (min-width: 1367px) {
@@ -101,7 +101,6 @@
         .modelimage {
             transform: scale(1.14) translate(1100px,-50px);
         }
-
     }
 
     @@media screen and (max-width: 1367px) {
@@ -113,13 +112,15 @@
         }
 
         .scaleeverything {
-         transform: scale(1.3) translate(-100px, -100px);
+            transform: scale(1.3) translate(-100px, -100px);
         }
+
         .modelimage {
-        transform: scale(0.73) translate(1150px,-250px);
-        position: fixed !important;
+            transform: scale(0.73) translate(1150px,-250px);
+            position: fixed !important;
         }
     }
+
     .copyrights {
         color: #818181;
         font-size: medium;
@@ -146,14 +147,15 @@
     .logo {
         font-size: large;
     }
+
     @@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 
     .modelimage {
-    z-index: 999;
+        z-index: 999;
     }
-
 </style>
+<html lang="en">
 <head>
     <title>Contact V2</title>
     <meta charset="UTF-8">
@@ -174,13 +176,8 @@
     <link rel="stylesheet" type="text/css" href="/Form/css/util.css">
     <link rel="stylesheet" type="text/css" href="/Form/css/main.css">
 </head>
-@if (CurrentAppointment == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
 <body>
+
     <img class="modelimage" src="/Form/images/modelimage.jpg" />
     <div class="sidenav">
         <h1><a href="#" class="logo">Activity Planner</a></h1>
@@ -200,72 +197,47 @@ else
     <div class="bg-contact2 scaleeverything" style="        background-image: url('/Form/images/');">
         <div class="container-contact2">
             <div class="wrap-contact2">
-                <span class="contact2-form-title">
-                   
-                </span>
-                <label class="col-sm-4 col-form-label">Name</label>
-                <div class="wrap-input2 validate-input">
-                    <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Name</label>
-                </div>
-                <label class="col-sm-4 col-form-label">Category</label>
-                <div class="wrap-input2 validate-input">
-                    <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Category</label>
-                </div>
-                <label class="col-sm-4 col-form-label">Description</label>
-                <div class="wrap-input2 validate-input">
-                    <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Description</label>
-                </div>
-                @if (CurrentAppointment.StartDate != default(DateTime))
-                {
-                    <label class="col-sm-4 col-form-label">Start date</label>
+                <EditForm Model="CurrentAttendee" OnValidSubmit="UpdateAttendee" class="contact2-form validate-form">
+                    <span class="contact2-form-title">
+
+                    </span>
+                    <label class="col-sm-4 col-form-label">Name</label>
                     <div class="wrap-input2 validate-input">
-                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.StartDate</label>
+                        <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAttendee.Data.Name"></InputText>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAttendee.Data.Name)" />
+                        <span class="focus-input2"></span>
                     </div>
-                }
-                @if (CurrentAppointment.EndDate != default(DateTime))
-                {
-                    <label class="col-sm-4 col-form-label">End date</label>
+                    <label class="col-sm-4 col-form-label">Email</label>
                     <div class="wrap-input2 validate-input">
-                        <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.EndDate</label>
+                        <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAttendee.Data.Email"></InputText>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAttendee.Data.Email)" />
+                        <span class="focus-input2"></span>
                     </div>
-                }
-                <label class="col-sm-4 col-form-label">Location</label>
-                <div class="wrap-input2 validate-input">
-                    <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.Location</label>
-                </div>
-                <label class="col-sm-4 col-form-label">Acceptance rate</label>
-                <div class="wrap-input2 validate-input">
-                    <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.AcceptanceRate</label>
-                </div>
-                @if (CurrentAppointment.AcceptedOrNot.Any())
-                {
-                    @foreach (var item in CurrentAppointment.AcceptedOrNot)
-                    {
-                        <label class="col-sm-4 col-form-label">Accepted or not</label>
-                        <div class="wrap-input2 validate-input">
-                            <label id="initial" class="input2" type="text" name="name">@item.Item1.Data.Name</label>
-                            <label id="initial" class="input2" type="text" name="name">@item.Item2.ToString()</label>
-                        </div>
-                    }
-                }
-                <label class="col-sm-4 col-form-label">Approximate date</label>
-                <div class="wrap-input2 validate-input">
-                    <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.ApproximateDate</label>
-                </div>
-                @if (CurrentAppointment.Attendees.Any())
-                {
-                    @foreach (var item in CurrentAppointment.Attendees)
-                    {
-                        <label class="col-sm-4 col-form-label">Attendees</label>
-                        <div class="wrap-input2 validate-input">
-                            <label id="initial" class="input2" type="text" name="name">@item.Data.Name</label>
-                        </div>
-                    }
-                }
-                <label class="col-sm-4 col-form-label">Main organizer</label>
-                <div class="wrap-input2 validate-input">
-                    <label id="initial" class="input2" type="text" name="name">@CurrentAppointment.MainOrganizer.Data.Name</label>
-                </div>
+                    <label class="col-sm-4 col-form-label">Postal code</label>
+                    <div class="wrap-input2 validate-input">
+                        <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAttendee.Data.PostalCode"></InputText>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAttendee.Data.PostalCode)" />
+                        <span class="focus-input2"></span>
+                    </div>
+                    <label class="col-sm-4 col-form-label">Street name</label>
+                    <div class="wrap-input2 validate-input">
+                        <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAttendee.Data.StreetName"></InputText>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAttendee.Data.StreetName)" />
+                        <span class="focus-input2"></span>
+                    </div>
+                    <label class="col-sm-4 col-form-label">Street number</label>
+                    <div class="wrap-input2 validate-input">
+                        <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAttendee.Data.StreetNumber"></InputText>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAttendee.Data.StreetNumber)" />
+                        <span class="focus-input2"></span>
+                    </div>
+                    <label class="col-sm-4 col-form-label">Telephone number</label>
+                    <div class="wrap-input2 validate-input">
+                        <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAttendee.Data.TelephoneNumber"></InputText>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAttendee.Data.TelephoneNumber)" />
+                        <span class="focus-input2"></span>
+                    </div>
+                </EditForm>
             </div>
         </div>
     </div>
@@ -274,7 +246,7 @@ else
 
 
 </body>
-}
+</html>
 
 @code {
     [Inject]
@@ -285,12 +257,16 @@ else
 
     public OrganizerDTO CurrentOrganizer { get; set; } = new OrganizerDTO() { };
 
-    public AppointmentDTO CurrentAppointment { get; set; } = new AppointmentDTO { };
+    public AttendeeDTO CurrentAttendee { get; set; } = new AttendeeDTO { };
 
 
     protected override async Task OnInitializedAsync()
     {
         CurrentOrganizer = await CurrentOrganizerDataService.GetCurrentUser(); ;
-        CurrentAppointment = CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault();
+        CurrentAttendee = CurrentOrganizer.Acquaintances.Where(a => a.id == id).FirstOrDefault();
+    }
+
+    public async void UpdateAttendee()
+    { 
     }
 }

@@ -6,6 +6,6 @@ namespace ActivityPlannerBlazor.Shared.DTOS
 {
     public class PendingInviteDTO
     {
-        AppointmentDTO PendingAppointmentToBeAccepted { get; set; }
+        public AppointmentDTO PendingAppointmentToBeAccepted { get; set; }
     }
 }
