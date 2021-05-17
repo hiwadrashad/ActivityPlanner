@@ -283,7 +283,6 @@ namespace ActivityPlannerBlazor.Repo.Repos
         public bool UpdateAppointment(AppointmentDTO DTO)
         {
             var ItemToUpdate = _appointments.Where(a => a.id == DTO.id).FirstOrDefault();
-            ItemToUpdate.id = DTO.id;
             ItemToUpdate.AcceptanceRate = DTO.AcceptanceRate;
             ItemToUpdate.AcceptedOrNot = DTO.AcceptedOrNot;
             ItemToUpdate.ApproximateDate = DTO.ApproximateDate;

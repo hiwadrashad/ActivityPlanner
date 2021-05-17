@@ -306,7 +306,6 @@
         CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().Name = CurrentAppointment.Name;
         CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().Organizers = CurrentAppointment.Organizers;
         CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault().StartDate = CurrentAppointment.StartDate;
-        await CurrentOrganizerDataService.Update(CurrentOrganizer);
         await AppointmentsDataService.Update(CurrentAppointment);
         await OrganizersDataService.Update(CurrentOrganizer);
         navmanager.NavigateTo("/succesfullyeditedappointment"); 

@@ -1,4 +1,4 @@
-﻿@page "/appointmentoverview"
+﻿@page "/attendeeoverview"
 @using ActivityPlannerBlazor.Client.Interfaces;
 @using ActivityPlannerBlazor.Shared.DTOS;
 @using Microsoft.AspNetCore.Components;
@@ -6,7 +6,6 @@
 @using System.Collections.Generic;
 @using System.Linq;
 @using System.Threading.Tasks;
-@*<html>*@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -321,8 +320,8 @@ else
     <body>
         <div class="sidenav">
             <h1><a href="#" class="logo">Activity Planner</a></h1>
-            <a class="underline" href="/attendeeoverview"><span class="fa fa-user mr-3"></span>Acquaintances</a>
-            <a class="underline" href="#"><span class="fa fa-sticky-note mr-3"></span>Appointments</a>
+            <a class="underline" href="#"><span class="fa fa-user mr-3"></span>Acquaintances</a>
+            <a class="underline" href="/appointmentoverview"><span class="fa fa-sticky-note mr-3"></span>Appointments</a>
             <h3 class="h6 mb-3">Subscribe for newsletter</h3>
             <form action="#" class="subscribe-form">
                 <div class="form-group d-flex">
@@ -337,23 +336,23 @@ else
 
         <div class="main">
 
-            @foreach (var item in CurrentOrganizer.Appointments)
+            @foreach (var item in CurrentOrganizer.Acquaintances)
             {
                 <div id="login-container">
                     <div class="profile-img"></div>
                     <h1>
-                        @item.Name
+                        @item.Data.Name
                     </h1>
                     <div class="description">
-                        @item.Description
+                        All the information about your acquaintance is shown here, click on details for more information about your acquaintance.
                     </div>
                     <div class="social">
-                        <a>@item.ApproximateDate</a>
-                        <a>@item.Category</a>
+                        <a>@item.Data.Name</a>
+                        <a>@item.Data.PostalCode</a>
                     </div>
                     <a href=""></a>
                     <button onclick="window.location.href='/appointmentedit/@item.id'" class="m-3 EditButton">Edit</button>
-                    <button  onclick="window.location.href='/appointmentdelete/@item.id'" class="m-3 DeleteButton">Delete</button>
+                    <button onclick="window.location.href='/appointmentdelete/@item.id'" class="m-3 DeleteButton">Delete</button>
                     <button onclick="window.location.href='/appointmentdetails/@item.id'" class="m-3 DetailsButton">Details</button>
                     <footer>
                         <div class="likes">
@@ -372,27 +371,14 @@ else
 
     </body>
 }
-@*</html>*@
-
-
 @code {
     [Inject]
     public ICurrentOrganizerDataService CurrentOrganizerDataService { get; set; }
-    public OrganizerDTO CurrentOrganizer { get; set; } = new OrganizerDTO()
-    {
-        //Acquaintances = new List<AttendeeDTO>(),
-        //Appointments = new List<AppointmentDTO>(),
-        //Data = new PersonalDataDTO()
-    };
 
-
+    public OrganizerDTO CurrentOrganizer { get; set; } = new OrganizerDTO() { };
 
     protected override async Task OnInitializedAsync()
     {
         CurrentOrganizer = await CurrentOrganizerDataService.GetCurrentUser();
-        if (!CurrentOrganizer.Appointments.Any())
-        {
-
-        }
     }
 }
