@@ -14,7 +14,6 @@
 
     body {
         overflow-x: hidden;
-        /*       transform: scale(1.03);*/
     }
 
     nav {
@@ -22,6 +21,10 @@
     }
 
     @@media screen and (min-width: 1367px) {
+
+        body {
+            min-width: 1680px;
+        }
 
         .scaleeverything {
             width: 105% !important;
@@ -36,6 +39,9 @@
     }
 
     @@media screen and (max-width: 1367px) {
+        body {
+            min-width: 1367px;
+        }
 
         .scaleeverything {
             width: 105% !important;
@@ -54,7 +60,7 @@
         opacity: 0.9;
         margin-left: 250px;
         margin-top: 50px;
-        height: 45% !important;
+        height: 400px !important;
         width: 200px;
         position: fixed !important;
         z-index: 1;
@@ -88,9 +94,8 @@
     @@media screen and (min-width: 1367px) {
         .sidenav {
             overflow: hidden;
-            height: 80%;
             margin-top: 100px;
-            transform: translateX(-150px) !important;
+            transform: translateX(-200px) !important;
         }
 
         .scaleeverything {
@@ -98,14 +103,14 @@
         }
 
         .modelimage {
-            transform: scale(1.14) translate(1100px,-50px);
+            transform: scale(.5) translate(1400px,-1200px);
+            /*            transform: scale(1.14) translate(1100px,-50px);*/
         }
     }
 
     @@media screen and (max-width: 1367px) {
         .sidenav {
             overflow: hidden;
-            height: 100%;
             margin-top: 120px;
             margin-left: 20px;
         }
@@ -115,7 +120,7 @@
         }
 
         .modelimage {
-            transform: scale(0.73) translate(1150px,-250px);
+            transform: scale(0.5) translate(1100px,-1200px);
             position: fixed !important;
         }
     }
@@ -178,7 +183,7 @@
 </head>
 <body>
 
-    <img class="modelimage" src="/Form/images/modelimage.jpg" />
+    <img class="modelimage" src="/Form/images/balloonimage4.jpg" />
     <div class="sidenav">
         <h1><a href="#" class="logo">Activity Planner</a></h1>
         <a class="underline" href="/"><span class="fa fa-home mr-3"></span>Home</a>
