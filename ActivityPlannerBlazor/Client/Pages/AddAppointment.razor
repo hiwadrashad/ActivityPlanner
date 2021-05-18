@@ -214,9 +214,19 @@
                     <div class="wrap-input2 validate-input">
                         <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAppointment.Description"></InputText>
                         <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.Description )" />
-                        <span class="focus-input2" data-placeholder="EMAIL"></span>
+                        <span class="focus-input2" data-placeholder="DESCRIPTION"></span>
                     </div>
-
+                    <label class="col-sm-4 col-form-label">Category</label>
+                    <div class="wrap-input2 validate-input">
+                        <InputSelect id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAppointment.Category">
+                            @foreach (var item in Enum.GetValues(typeof(ActivityPlannerBlazor.Shared.Enums.Category)))
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </InputSelect>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.Category)" />
+                        <span class="focus-input2"></span>
+                    </div>
 
                     <div class="container-contact2-form-btn">
                         <div class="wrap-contact2-form-btn">
@@ -245,6 +255,8 @@
 
     [Inject]
     public IAppointmentDataService AppointmentDataService { get; set; }
+    [Inject]
+    public NavigationManager navmanager { get; set; }
 
     public OrganizerDTO CurrentOrganizer { get; set; } = new OrganizerDTO() { };
 
@@ -256,7 +268,7 @@
     }
 
     public async void AddModel()
-    { 
-    
+    {
+        navmanager.NavigateTo("/succesfullyaddedappointment");
     }
 }

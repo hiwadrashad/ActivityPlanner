@@ -8,4 +8,10 @@
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SMS\" />
+    <Folder Include="WhatsApp\" />
+    <Folder Include="SMTP\" />
+  </ItemGroup>
+
 </Project>

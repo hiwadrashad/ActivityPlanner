@@ -96,6 +96,7 @@ namespace ActivityPlannerBlazor.Repo.Repos
                     },
 
                   },
+                  
                   Acquaintances =  new List<AttendeeDTO>()
                   { 
                       new AttendeeDTO()
