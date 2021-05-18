@@ -248,7 +248,7 @@
                         <div class="container-contact2-form-btn">
                             <div class="wrap-contact2-form-btn">
                                 <div class="contact2-form-bgbtn"></div>
-                                <button class="contact2-form-btn">
+                                <button type="submit" class="contact2-form-btn">
                                     Add acquaintance
                                 </button>
                             </div>
@@ -272,6 +272,8 @@
 
     [Inject]
     public IAttendeeDataService AttendeeDataService { get; set; }
+    [Inject]
+    public NavigationManager navmanager { get; set; }
 
     public OrganizerDTO CurrentOrganizer { get; set; } = new OrganizerDTO() { };
 
@@ -295,6 +297,7 @@
             await AttendeeDataService.Add(AttendeeToAdd);
             CurrentOrganizer.Acquaintances.Add(AttendeeToAdd);
             await OrganizerDataService.Update(CurrentOrganizer);
+            navmanager.NavigateTo("/succesfullyaddedacquaintance");
         }
     }
 }
