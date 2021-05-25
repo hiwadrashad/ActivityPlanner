@@ -312,7 +312,10 @@
 
 @if (CurrentOrganizer.Acquaintances == null)
 {
-    <p><em>Loading...</em></p>
+    <div style="position:absolute; top:30vh; width:100%; text-align:center">
+        <h1>My application</h1>
+        <p><i class="fas fa-spin fa-spinner"></i> The application is loading...</p>
+    </div>
 }
 else
 {
@@ -351,7 +354,7 @@ else
                     </div>
                     <a href=""></a>
                     <button onclick="window.location.href='/appointmentedit/@item.id'" class="m-3 EditButton">Edit</button>
-                    <button  onclick="window.location.href='/appointmentdelete/@item.id'" class="m-3 DeleteButton">Delete</button>
+                    <button onclick="window.location.href='/appointmentdelete/@item.id'" class="m-3 DeleteButton">Delete</button>
                     <button onclick="window.location.href='/appointmentdetails/@item.id'" class="m-3 DetailsButton">Details</button>
                     <footer>
                         <div class="likes">

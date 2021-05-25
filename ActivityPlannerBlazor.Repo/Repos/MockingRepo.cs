@@ -38,6 +38,119 @@ namespace ActivityPlannerBlazor.Repo.Repos
                new OrganizerDTO()
                {
                    id = Guid.NewGuid().ToString(),
+                   Messages = new List<MessageDTO>()
+                   {
+                     new MessageDTO()
+                     {
+                         Id = Guid.NewGuid().ToString(),
+                         Title = "Thank you for your invite",
+                         Message = "As i saw you invited me to the latest convention meetup, i would attend you that the adress at which this takes place is not on the 45th but 44th",
+                         From =  new AttendeeDTO()
+                      {
+                       id = Guid.NewGuid().ToString(),
+                       Data = new PersonalDataDTO()
+                       {
+                        Name = "Emile",
+                        Email = "Emil@gmail.com",
+                        PostalCode = "4535KX",
+                        StreetName = "Northstreet",
+                        StreetNumber = "3",
+                        TelephoneNumber = "32432343243"
+                       }
+                      }
+                     },
+                         new MessageDTO()
+                     {
+                         Id = Guid.NewGuid().ToString(),
+                         Title = "Thank you for your invite",
+                         Message = "As i saw you invited me to the latest convention meetup, i would attend you that the adress at which this takes place is not on the 45th but 44th",
+                         From =  new AttendeeDTO()
+                      {
+                       id = Guid.NewGuid().ToString(),
+                       Data = new PersonalDataDTO()
+                       {
+                        Name = "Emile",
+                        Email = "Emil@gmail.com",
+                        PostalCode = "4535KX",
+                        StreetName = "Northstreet",
+                        StreetNumber = "3",
+                        TelephoneNumber = "32432343243"
+                       }
+                      }
+                     },
+                        new MessageDTO()
+                     {
+                         Id = Guid.NewGuid().ToString(),
+                         Title = "Thank you for your invite",
+                         Message = "As i saw you invited me to the latest convention meetup, i would attend you that the adress at which this takes place is not on the 45th but 44th",
+                         From =  new AttendeeDTO()
+                      {
+                       id = Guid.NewGuid().ToString(),
+                       Data = new PersonalDataDTO()
+                       {
+                        Name = "Emile",
+                        Email = "Emil@gmail.com",
+                        PostalCode = "4535KX",
+                        StreetName = "Northstreet",
+                        StreetNumber = "3",
+                        TelephoneNumber = "32432343243"
+                       }
+                      }
+                     }
+                   },
+                   PassedAcceptanceRateAppointments = new List<AppointmentDTO>()
+                   {
+                     new AppointmentDTO()
+                     {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Excersise,
+                       Description = "For everyon who is invited, we will be hooping some balls around Center Park",
+                       Location = "Center park",
+                       Name = "Baskteball group"
+                     },
+                            new AppointmentDTO()
+                     {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Excersise,
+                       Description = "For everyon who is invited, we will be hooping some balls around Center Park",
+                       Location = "Center park",
+                       Name = "Baskteball group"
+                     },
+                                   new AppointmentDTO()
+                     {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Excersise,
+                       Description = "For everyon who is invited, we will be hooping some balls around Center Park",
+                       Location = "Center park",
+                       Name = "Baskteball group"
+                     },
+                                          new AppointmentDTO()
+                     {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Excersise,
+                       Description = "For everyon who is invited, we will be hooping some balls around Center Park",
+                       Location = "Center park",
+                       Name = "Baskteball group"
+                     },
+                                                 new AppointmentDTO()
+                     {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Excersise,
+                       Description = "For everyon who is invited, we will be hooping some balls around Center Park",
+                       Location = "Center park",
+                       Name = "Baskteball group"
+                     }
+                   },
                    Data = new PersonalDataDTO()
                    {
                     Email = "test@hotmail.com",

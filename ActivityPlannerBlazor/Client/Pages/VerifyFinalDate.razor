@@ -1,0 +1,111 @@
+﻿@page "/verifyfinaldate"
+@page "/verifyfinaldate/{id}"
+@using ActivityPlannerBlazor.Client.Interfaces;
+@using ActivityPlannerBlazor.Shared.DTOS;
+@using Microsoft.AspNetCore.Components;
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Threading.Tasks;
+<html lang="en">
+<head>
+    <title>Contact Form 05</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/VerifyDate/css/style.css">
+
+</head>
+<body>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="wrapper">
+                        <div class="row no-gutters">
+                            <div class="col-lg-6">
+                                <div class="contact-wrap w-100 p-md-5 p-4">
+                                    <h3>Appointment date</h3>
+                                    <p class="mb-4">Select your starting and end date for the appointment</p>
+                                    <div class="p-2"></div>
+                                    <EditForm Model="CurrentAppointment" OnValidSubmit="AssignDate" id="contactForm" name="contactForm" class="contactForm" novalidate="novalidate">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Starting date</label>
+                                                <div class="form-group">
+                                                    <InputDate type="text" class="form-control" name="name" id="name" placeholder="Starting date" @bind-Value="@CurrentAppointment.StartDate"></InputDate>
+                                                    <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.StartDate)" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label>Ending date</label>
+                                                <div class="form-group">
+                                                    <InputDate type="text" class="form-control" name="name" id="name" placeholder="Ending date" @bind-Value="@CurrentAppointment.EndDate"></InputDate>
+                                                    <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.EndDate)" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 m-t-50">
+                                            <div class="form-group">
+                                                <input type="submit" value="Verify date" class="btn btn-primary">
+                                                <div class="submitting"></div>
+                                            </div>
+                                        </div>
+                                    </EditForm>
+                                    <div class="p-1"></div>
+                                    <div class="w-100 social-media mt-5">
+                                        <h3>Follow us here</h3>
+                                        <p>
+                                            <a href="#">Facebook</a>
+                                            <a href="#">Twitter</a>
+                                            <a href="#">Instagram</a>
+                                            <a href="#">Dribbble</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-flex align-items-stretch">
+                                <div class="info-wrap w-100 p-5 img" style="background-image: url(/VerifyDate/images/img.jpg);">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
+</html>
+@code {
+    [Inject]
+    public ICurrentOrganizerDataService CurrentOrganizerDataService { get; set; }
+
+    [Inject]
+    public NavigationManager navmanager { get; set; }
+
+    [Parameter]
+    public string id { get; set; }
+
+    public OrganizerDTO CurrentOrganizer { get; set; } = new OrganizerDTO() { };
+
+    public AppointmentDTO CurrentAppointment { get; set; } = new AppointmentDTO { };
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        CurrentOrganizer = await CurrentOrganizerDataService.GetCurrentUser(); ;
+    }
+
+    public void AssignDate()
+    {
+        navmanager.NavigateTo("/succesfullyassigneddate");
+    }
+
+}

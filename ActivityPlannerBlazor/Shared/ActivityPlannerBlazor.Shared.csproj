@@ -11,7 +11,6 @@
   <ItemGroup>
     <Folder Include="SMS\" />
     <Folder Include="WhatsApp\" />
-    <Folder Include="SMTP\" />
   </ItemGroup>
 
 </Project>
