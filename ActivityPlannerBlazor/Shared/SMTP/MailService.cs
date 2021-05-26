@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ActivityPlannerBlazor.Shared.DTOS;
+using ActivityPlannerBlazor.Shared.Messages;
+using System;
 using System.Collections.Generic;
 using System.Net.Mail;
 using System.Text;
@@ -7,19 +9,21 @@ namespace ActivityPlannerBlazor.Shared.SMTP
 {
     public class MailService
     {
-        public static void SendMailToCustomer(string email, string pathfile)
+        public static void SendMailToCustomer(AttendeeDTO attendee, OrganizerDTO organizer, AppointmentDTO appointment, string pathfile = null)
         {
             using (MailMessage mail = new MailMessage())
             {
                 mail.From = new MailAddress("testmailopdracht@gmail.com");
-                mail.To.Add(email);
-                mail.Subject = "Christmas card";
-                mail.Body = "Dear Sir/Ma'am we wish you a well christmas and a happy new year, in the attachment you will find the christmas card.";
+                mail.To.Add(attendee.Data.Email);
+                mail.Subject = "Activity planner invite";
+                mail.Body = MessageGenerator.ReturnMessage(organizer, appointment);
                 mail.IsBodyHtml = true;
-                System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment(pathfile);
-                mail.Attachments.Add(attachment);
-
+                if (pathfile != null)
+                {
+                    System.Net.Mail.Attachment attachment;
+                    attachment = new System.Net.Mail.Attachment(pathfile);
+                    mail.Attachments.Add(attachment);
+                }
                 using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                 {
                     smtp.UseDefaultCredentials = false;
