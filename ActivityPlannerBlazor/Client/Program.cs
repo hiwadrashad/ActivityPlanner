@@ -46,7 +46,7 @@ namespace ActivityPlannerBlazor.Client
                 client.BaseAddress = new Uri("https://localhost:44333/");
             });
             builder.Services.AddApiAuthorization();
-
+            builder.Services.AddLogging(builder => builder.SetMinimumLevel(LogLevel.Trace));
             await builder.Build().RunAsync();
         }
     }

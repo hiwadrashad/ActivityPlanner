@@ -6,7 +6,8 @@
 @using System.Collections.Generic;
 @using System.Linq;
 @using System.Threading.Tasks;
-
+@using Microsoft.Extensions.Logging;
+@inject ILogger<AddAcquaintances> logger
 <style>
     .container2 {
         width: 90vw !important;
@@ -41,7 +42,7 @@
         <h1>Activity planner</h1>
         <p><i class="fas fa-spin fa-spinner"></i> The application is loading...</p>
     </div>
-    }
+}
 else
 {
     <body style="">

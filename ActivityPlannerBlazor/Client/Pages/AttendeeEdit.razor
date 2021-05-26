@@ -7,7 +7,8 @@
 @using System.Collections.Generic;
 @using System.Linq;
 @using System.Threading.Tasks;
-
+@using Microsoft.Extensions.Logging;
+@inject ILogger<AddAcquaintances> logger
 <style>
     .modelimage {
         position: fixed !important;
@@ -159,7 +160,6 @@
     .modelimage {
         z-index: 999;
     }
-
 </style>
 <html lang="en">
 <head>
@@ -281,6 +281,7 @@
     }
 
     public async void UpdateAttendee()
-    { 
+    {
+        logger.LogInformation("Attendee edited");
     }
 }

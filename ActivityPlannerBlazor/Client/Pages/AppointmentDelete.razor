@@ -1,87 +1,89 @@
 ﻿@page "/appointmentdelete"
 @page "/appointmentdelete/{id}"
-    @using ActivityPlannerBlazor.Client.Interfaces;
-    @using ActivityPlannerBlazor.Shared.DTOS;
-    @using Microsoft.AspNetCore.Components;
-    @using System;
-    @using System.Collections.Generic;
-    @using System.Linq;
-    @using System.Threading.Tasks;
+@using ActivityPlannerBlazor.Client.Interfaces;
+@using ActivityPlannerBlazor.Shared.DTOS;
+@using Microsoft.AspNetCore.Components;
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Threading.Tasks;
+@using Microsoft.Extensions.Logging;
+@inject ILogger<AddAcquaintances> logger
+<style>
+    @@media screen and (min-width: 1367px) {
 
-    <style>
-        @@media screen and (min-width: 1367px) {
-
-            .containerscaling {
-                transform: translateY(100px);
-            }
-        }
-
-        @@media screen and (max-width: 1367px) {
-
-            .containerscaling {
-                transform: scale(0.8);
-            }
-        }
-    </style>
-    <head>
-        <link href="/MessagePage/css/froala_blocks.css" rel="stylesheet">
-    </head>
-    <section class="fdb-block containerscaling">
-        <div class="col-fill-right imagescaling" style="background-image: url(/MessagePage/imgs/people/6.jpg);">
-        </div>
-        <EditForm Model="CurrentAppointment" OnValidSubmit="DeleteAppointment" class="contact2-form validate-form">
-            <div class="container py-5">
-                <div class="row">
-                    <div class="col-12 col-md-5 text-center">
-                        <h1>Message page</h1>
-                        <p class="lead">Are you sure you want to delete this file?</p>
-                        <p class="mt-4 mb-5"><button class="btn btn-secondary" type="submit">Delete</button></p>
-
-                        <p>Follow us on</p>
-                        <p>
-                            <a href="#" class="mx-2 text-secondary"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#" class="mx-2 text-secondary"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#" class="mx-2 text-secondary"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                            <a href="#" class="mx-2 text-secondary"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            <a href="#" class="mx-2 text-secondary"><i class="fa fa-google" aria-hidden="true"></i></a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            </EditForm>
-    </section>
-
-    @code {
-        [Inject]
-        public ICurrentOrganizerDataService CurrentOrganizerDataService { get; set; }
-        [Inject]
-        public IAppointmentDataService AppointmentsDataService { get; set; }
-        [Inject]
-        public IOrganizerDataService OrganizersDataService { get; set; }
-        [Inject]
-        public NavigationManager navmanager { get; set; }
-
-        [Parameter]
-        public string id { get; set; }
-
-        public OrganizerDTO CurrentOrganizer { get; set; } = new OrganizerDTO() { };
-
-        public AppointmentDTO CurrentAppointment { get; set; } = new AppointmentDTO { };
-
-
-        protected override async Task OnInitializedAsync()
-        {
-            CurrentOrganizer = await CurrentOrganizerDataService.GetCurrentUser(); ;
-            CurrentAppointment = CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault();
-        }
-
-        public async void DeleteAppointment()
-        {
-            CurrentOrganizer.Appointments.Remove(CurrentAppointment);
-            await CurrentOrganizerDataService.Update(CurrentOrganizer);
-            await AppointmentsDataService.Delete(CurrentAppointment.id);
-            await OrganizersDataService.Update(CurrentOrganizer);
-            navmanager.NavigateTo("/succesfullydeletedappointment");
-
+        .containerscaling {
+            transform: translateY(100px);
         }
     }
+
+    @@media screen and (max-width: 1367px) {
+
+        .containerscaling {
+            transform: scale(0.8);
+        }
+    }
+</style>
+<head>
+    <link href="/MessagePage/css/froala_blocks.css" rel="stylesheet">
+</head>
+<section class="fdb-block containerscaling">
+    <div class="col-fill-right imagescaling" style="background-image: url(/MessagePage/imgs/people/6.jpg);">
+    </div>
+    <EditForm Model="CurrentAppointment" OnValidSubmit="DeleteAppointment" class="contact2-form validate-form">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12 col-md-5 text-center">
+                    <h1>Message page</h1>
+                    <p class="lead">Are you sure you want to delete this file?</p>
+                    <p class="mt-4 mb-5"><button class="btn btn-secondary" type="submit">Delete</button></p>
+
+                    <p>Follow us on</p>
+                    <p>
+                        <a href="#" class="mx-2 text-secondary"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" class="mx-2 text-secondary"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#" class="mx-2 text-secondary"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" class="mx-2 text-secondary"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                        <a href="#" class="mx-2 text-secondary"><i class="fa fa-google" aria-hidden="true"></i></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </EditForm>
+</section>
+
+@code {
+    [Inject]
+    public ICurrentOrganizerDataService CurrentOrganizerDataService { get; set; }
+    [Inject]
+    public IAppointmentDataService AppointmentsDataService { get; set; }
+    [Inject]
+    public IOrganizerDataService OrganizersDataService { get; set; }
+    [Inject]
+    public NavigationManager navmanager { get; set; }
+
+    [Parameter]
+    public string id { get; set; }
+
+    public OrganizerDTO CurrentOrganizer { get; set; } = new OrganizerDTO() { };
+
+    public AppointmentDTO CurrentAppointment { get; set; } = new AppointmentDTO { };
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        CurrentOrganizer = await CurrentOrganizerDataService.GetCurrentUser(); ;
+        CurrentAppointment = CurrentOrganizer.Appointments.Where(a => a.id == id).FirstOrDefault();
+    }
+
+    public async void DeleteAppointment()
+    {
+        logger.LogInformation("Appointment deleted");
+        CurrentOrganizer.Appointments.Remove(CurrentAppointment);
+        await CurrentOrganizerDataService.Update(CurrentOrganizer);
+        await AppointmentsDataService.Delete(CurrentAppointment.id);
+        await OrganizersDataService.Update(CurrentOrganizer);
+        navmanager.NavigateTo("/succesfullydeletedappointment");
+
+    }
+}
