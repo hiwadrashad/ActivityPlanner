@@ -8,22 +8,26 @@ namespace UnitTesting.BlackBox
 {
     public class LoadTesting
     {
-        private Counter _opCounter;
+
+        /// <summary>
+        /// Execute code by putting benchmarkExecution as startup project
+        /// </summary>
+        private Counter _counter;
 
         [PerfSetup]
         public void Setup(BenchmarkContext context)
         {
-            _opCounter = context.GetCounter("MyCounter");
+            _counter = context.GetCounter("TestCounter");
         }
 
-        [PerfBenchmark(NumberOfIterations = 13, RunMode = RunMode.Throughput, RunTimeMilliseconds = 1000, TestMode = TestMode.Measurement)]
-        [CounterMeasurement("MyCounter")]
-        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
-
-        public void BenchMarkMethod(BenchmarkContext context)
+        [PerfBenchmark(Description = "Test to gauge the impact of having multiple things to measure on a benchmark.",
+            NumberOfIterations = 3, RunMode = RunMode.Throughput, RunTimeMilliseconds = 1000, TestMode = TestMode.Test)]
+        [CounterThroughputAssertion("TestCounter", MustBe.GreaterThan, 10000000.0d)]
+        [MemoryAssertion(MemoryMetric.TotalBytesAllocated, MustBe.LessThanOrEqualTo, ByteConstants.ThirtyTwoKb)]
+        [GcTotalAssertion(GcMetric.TotalCollections, GcGeneration.Gen2, MustBe.ExactlyEqualTo, 0.0d)]
+        public void Benchmark()
         {
-            var bytes = new byte[1024];
-            _opCounter.Increment();
+            _counter.Increment();
         }
     }
 }

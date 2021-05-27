@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NBench" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ActivityPlannerBlazor.Repo\ActivityPlannerBlazor.Repo.csproj" />
     <ProjectReference Include="..\ActivityPlannerBlazor\Shared\ActivityPlannerBlazor.Shared.csproj" />
   </ItemGroup>

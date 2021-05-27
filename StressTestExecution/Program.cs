@@ -1,15 +1,10 @@
 ﻿using NBench;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace UnitTesting.BlackBox
+namespace StressTestExecution
 {
-    public class StressTesting
+    class Program
     {
-        /// <summary>
-        /// Execute code by putting StressTestExecution as startup project
-        /// </summary>
         private Counter _opCounter;
 
         [PerfSetup]
@@ -27,6 +22,10 @@ namespace UnitTesting.BlackBox
             var bytes = new byte[1024];
             _opCounter.Increment();
 
+        }
+        static int Main(string[] args)
+        {
+            return NBench.NBenchRunner.Run<Program>();
         }
     }
 }

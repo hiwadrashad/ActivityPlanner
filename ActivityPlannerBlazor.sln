@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActivityPlannerBlazor.Share
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActivityPlannerBlazor.Repo", "ActivityPlannerBlazor.Repo\ActivityPlannerBlazor.Repo.csproj", "{4109A454-95AB-4116-8678-6A0A9049BDB9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "TestConsole\TestConsole.csproj", "{4ABC1A92-DE45-43C5-B40B-3A0BBE825B19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BenchMarkExecution", "TestConsole\BenchMarkExecution.csproj", "{4ABC1A92-DE45-43C5-B40B-3A0BBE825B19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting", "UnitTesting\UnitTesting.csproj", "{C7CCB1FE-2339-4CFF-AF49-A3F2E971A8D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTesting", "UnitTesting\UnitTesting.csproj", "{C7CCB1FE-2339-4CFF-AF49-A3F2E971A8D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StressTestExecution", "StressTestExecution\StressTestExecution.csproj", "{BA445B41-07C4-4513-947F-535B6000CD77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{C7CCB1FE-2339-4CFF-AF49-A3F2E971A8D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7CCB1FE-2339-4CFF-AF49-A3F2E971A8D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7CCB1FE-2339-4CFF-AF49-A3F2E971A8D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA445B41-07C4-4513-947F-535B6000CD77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA445B41-07C4-4513-947F-535B6000CD77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA445B41-07C4-4513-947F-535B6000CD77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA445B41-07C4-4513-947F-535B6000CD77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

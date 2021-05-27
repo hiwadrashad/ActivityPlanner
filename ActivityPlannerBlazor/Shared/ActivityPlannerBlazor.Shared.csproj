@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="iTextSharp" Version="5.5.13.2" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 
