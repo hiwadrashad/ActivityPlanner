@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ActivityPlannerBlazor.Client.Interfaces
 {
-    public interface IAttendeeDataService
+    public interface DIAttendeeDataService
     {
         Task<IEnumerable<AttendeeDTO>> GetAll();
         Task<AttendeeDTO> GetDetails(string id);

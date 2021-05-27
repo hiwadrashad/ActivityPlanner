@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ActivityPlannerBlazor.Client.Interfaces
 {
-    public interface IAppointmentDataService
+    public interface DIAppointmentDataService
     {
         Task<IEnumerable<AppointmentDTO>> GetAll();
         Task<AppointmentDTO> GetDetails(string id);

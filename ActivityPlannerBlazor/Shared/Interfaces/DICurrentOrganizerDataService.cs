@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace ActivityPlannerBlazor.Client.Interfaces
 {
-    public interface IOrganizerDataService
+    public interface DICurrentOrganizerDataService
     {
-        Task<IEnumerable<OrganizerDTO>> GetAll();
-        Task<OrganizerDTO> GetDetails(string id);
-        Task<OrganizerDTO> Add(OrganizerDTO model);
+        Task<OrganizerDTO> GetCurrentUser();
         Task Update(OrganizerDTO model);
-        Task Delete(string id);
     }
 }

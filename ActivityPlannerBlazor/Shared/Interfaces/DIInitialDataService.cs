@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ActivityPlannerBlazor.Client.Interfaces
 {
-    public interface IInitialDataService
+    public interface DIInitialDataService
     {
         Task<IEnumerable<InitialModel>> GetAllInitials();
         Task<InitialModel> GetInitialDetails(string id);
