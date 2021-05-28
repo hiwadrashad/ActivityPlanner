@@ -22,7 +22,6 @@
     <ProjectReference Include="..\ActivityPlannerBlazor\Server\ActivityPlannerBlazor.Server.csproj" />
     <ProjectReference Include="..\ActivityPlannerBlazor\Shared\ActivityPlannerBlazor.Shared.csproj" />
     <ProjectReference Include="..\StressTestExecution\StressTestExecution.csproj" />
-    <ProjectReference Include="..\TestConsole\BenchMarkExecution.csproj" />
   </ItemGroup>
 
 </Project>

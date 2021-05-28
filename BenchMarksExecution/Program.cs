@@ -1,14 +1,11 @@
-﻿using ActivityPlannerBlazor.Repo.Interfaces;
-using ActivityPlannerBlazor.Repo.Repos;
-using NBench;
+﻿using NBench;
 using System;
-using System.Linq;
 
-namespace BenchMarkExecution
+namespace BenchMarksExecution
 {
     class Program
     {
-          private Counter _counter;
+        private Counter _counter;
 
         [PerfSetup]
         public void Setup(BenchmarkContext context)
@@ -16,7 +13,7 @@ namespace BenchMarkExecution
             _counter = context.GetCounter("TestCounter");
         }
 
-        [PerfBenchmark(Description = "Test to gauge the impact of having multiple things to measure on a benchmark.", 
+        [PerfBenchmark(Description = "Test to gauge the impact of having multiple things to measure on a benchmark.",
             NumberOfIterations = 3, RunMode = RunMode.Throughput, RunTimeMilliseconds = 1000, TestMode = TestMode.Test)]
         [CounterThroughputAssertion("TestCounter", MustBe.GreaterThan, 10000000.0d)]
         [MemoryAssertion(MemoryMetric.TotalBytesAllocated, MustBe.LessThanOrEqualTo, ByteConstants.ThirtyTwoKb)]
