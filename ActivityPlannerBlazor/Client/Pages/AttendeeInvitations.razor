@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/attendeeinvitations"
 @using ActivityPlannerBlazor.Client.Interfaces;
 @using ActivityPlannerBlazor.Shared.DTOS;
 @using Microsoft.AspNetCore.Components;
@@ -9,14 +9,18 @@
 
 <style>
     .container2 {
-        width: 90vw !important;
+        width: 102vw !important;
         background-color: white;
         margin-right: auto;
         margin-left: auto;
     }
 
+    body {
+    transform: translate(-1.5vw, -1vw);
+    }
+
     .headerimage {
-        width: 90vw !important;
+        width: 102vw !important;
     }
 
     .placeholder {
@@ -25,6 +29,10 @@
 
     .underlinetoggle {
         text-decoration: none !important;
+    }
+
+    header {
+      padding: 100px;
     }
 </style>
 <head>

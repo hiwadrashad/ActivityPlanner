@@ -1,4 +1,4 @@
-﻿@page "/addappointment"
+﻿@page "/"
 @using ActivityPlannerBlazor.Client.Interfaces;
 @using ActivityPlannerBlazor.Shared.DTOS;
 @using Microsoft.AspNetCore.Components;
@@ -216,6 +216,20 @@
                         <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.Description )" />
                         <span class="focus-input2" data-placeholder="DESCRIPTION"></span>
                     </div>
+
+                    <!-- place attendees here -->
+
+                    <label class="col-sm-4 col-form-label">Season</label>
+                    <div class="wrap-input2 validate-input">
+                        <InputSelect id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAppointment.ApproximateDate">
+                            @foreach (var item in Enum.GetValues(typeof(ActivityPlannerBlazor.Shared.Enums.Season)))
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </InputSelect>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.Category)" />
+                        <span class="focus-input2"></span>
+                    </div>
                     <label class="col-sm-4 col-form-label">Category</label>
                     <div class="wrap-input2 validate-input">
                         <InputSelect id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAppointment.Category">
@@ -225,6 +239,18 @@
                             }
                         </InputSelect>
                         <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.Category)" />
+                        <span class="focus-input2"></span>
+                    </div>
+
+                    <div class="wrap-input2 validate-input">
+                        <InputText id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAppointment.Location"></InputText>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.Location )" />
+                        <span class="focus-input2" data-placeholder="LOCATION"></span>
+                    </div>
+                    <label class="col-sm-4 col-form-label">Acceptance rate</label>
+                    <div class="wrap-input2 validate-input">
+                        <InputNumber id="initial" class="input2" type="text" name="name" @bind-Value="@CurrentAppointment.AcceptanceRate"></InputNumber>
+                        <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => CurrentAppointment.AcceptanceRate )" />
                         <span class="focus-input2"></span>
                     </div>
 
@@ -262,8 +288,11 @@
 
     public AppointmentDTO CurrentAppointment { get; set; } = new AppointmentDTO() { };
 
+    public List<AttendeeDTO> ChoiceAttendees { get; set; } = new List<AttendeeDTO>() { };
+
     protected override async Task OnInitializedAsync()
     {
+        ChoiceAttendees = (await CurrentOrganizerDataService.GetCurrentUser()).Acquaintances;
         CurrentOrganizer = await CurrentOrganizerDataService.GetCurrentUser();
     }
 
