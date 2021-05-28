@@ -311,7 +311,10 @@
 
 @if (CurrentOrganizer.Acquaintances == null)
 {
-    <p><em>Loading...</em></p>
+    <div style="position:absolute; top:30vh; width:100%; text-align:center">
+        <h1>Activity planner</h1>
+        <p><i class="fas fa-spin fa-spinner"></i> The application is loading...</p>
+    </div>
 }
 else
 {

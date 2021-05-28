@@ -1,4 +1,4 @@
-﻿@page "/overviewlatestupdates"
+﻿@page "/"
 @using ActivityPlannerBlazor.Client.Interfaces;
 @using ActivityPlannerBlazor.Shared.DTOS;
 @using Microsoft.AspNetCore.Components;
@@ -6,8 +6,7 @@
 @using System.Collections.Generic;
 @using System.Linq;
 @using System.Threading.Tasks;
-@using Microsoft.Extensions.Logging;
-@inject ILogger<AddAcquaintances> logger
+
 <style>
     .container2 {
         width: 90vw !important;
@@ -36,7 +35,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
     <link href="/LatestUpdates2/css/templatemo-style.css" rel="stylesheet">
 </head>
-@if (CurrentOrganizer.PassedAcceptanceRateAppointments == null)
+
+@if (CurrentAttendee.PendingInvites == null)
 {
     <div style="position:absolute; top:30vh; width:100%; text-align:center">
         <h1>Activity planner</h1>
@@ -61,21 +61,21 @@ else
 
             <main>
                 <header class="row tm-welcome-section">
-                    <h2 class="col-12 text-center tm-section-title">Approved groups</h2>
-                    <p class="col-12 text-center">Under this section you will find all group meetings in which the acceptance rate is surpassed, you are now open to set a discrete date of appointment.</p>
+                    <h2 class="col-12 text-center tm-section-title">Pending invites</h2>
+                    <p class="col-12 text-center">Under this section you will find all pending invitations for which you are invited, click on the items to accept the invitation.</p>
                 </header>
 
                 <!-- Gallery -->
                 <div class="row tm-gallery">
                     <div id="tm-gallery-page-pizza" class="tm-gallery-page">
-                        @foreach (var item in CurrentOrganizer.PassedAcceptanceRateAppointments)
+                        @foreach (var item in CurrentAttendee.PendingInvites)
                         {
-                            <a href="verifyfinaldate/@item.id" class="underlinetoggle col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <a href="verifyifattendinginvite/@item.PendingAppointmentToBeAccepted.id" class="underlinetoggle col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                                 <figure>
                                     <img src="/LatestUpdates2/img/sport-image2.jpg" alt="Image" class="img-fluid tm-gallery-img">
                                     <figcaption>
-                                        <h4 class="tm-gallery-title">@item.Name</h4>
-                                        <p class="tm-gallery-description">@item.Description</p>
+                                        <h4 class="tm-gallery-title">@item.PendingAppointmentToBeAccepted.Name</h4>
+                                        <p class="tm-gallery-description">@item.PendingAppointmentToBeAccepted.Description</p>
                                     </figcaption>
                                 </figure>
                             </a>
@@ -87,12 +87,12 @@ else
                 </div>
 
                 <header class="row tm-welcome-section">
-                    <h2 class="col-12 text-center tm-section-title">Messages</h2>
-                    <p class="col-12 text-center">Under this section you will find all the messages which are send to you from your acquaintances, click to verify that you read the message.</p>
+                    <h2 class="col-12 text-center tm-section-title">Accepted invites</h2>
+                    <p class="col-12 text-center">Under this section you will find all invitations for which you have accepted the previously pending invitation.</p>
                 </header>
 
                 <div class="tm-section tm-container-inner">
-                    @foreach (var item in CurrentOrganizer.Messages)
+                    @foreach (var item in CurrentAttendee.AcceptedInvites)
                     {
                         <div class="row">
                             <div class="col-md-6 m-b-55">
@@ -102,15 +102,41 @@ else
                             </div>
                             <div class="col-md-6">
                                 <div class="tm-description-box">
-                                    <h4 class="tm-gallery-title">@item.Title</h4>
-                                    <p class="tm-mb-45">@item.Message</p>
-                                    <a href="/succesfullyverifiedmessage/@item.Id" class="tm-btn tm-btn-default tm-right">Verify</a>
+                                    <h4 class="tm-gallery-title">@item.Appointment.Name</h4>
+                                    <p class="tm-mb-45">@item.Appointment.Description</p>
                                 </div>
                             </div>
                         </div>
                     }
                 </div>
             </main>
+
+            <header class="row tm-welcome-section">
+                <h2 class="col-12 text-center tm-section-title">Not accepted invites</h2>
+                <p class="col-12 text-center">Under this section you will find all group meetings for which you have previously assigned that you wouldn't want to attend it.</p>
+            </header>
+
+            <!-- Gallery -->
+            <div class="row tm-gallery">
+                <div id="tm-gallery-page-pizza" class="tm-gallery-page">
+                    @foreach (var item in CurrentAttendee.NotAcceptedInvites)
+                    {
+                        <a class="underlinetoggle col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <img src="/LatestUpdates2/img/sport-image.jpg" alt="Image" class="img-fluid tm-gallery-img">
+                                <figcaption>
+                                    <h4 class="tm-gallery-title">@item.Appointment.Name</h4>
+                                    <p class="tm-gallery-description">@item.Appointment.Description</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    }
+
+                </div>
+
+
+            </div>
+
 
             <footer class="tm-footer text-center">
                 <p>
@@ -119,21 +145,15 @@ else
         </div>
     </body>
 }
+
+
 @code {
     [Inject]
-    public ICurrentOrganizerDataService CurrentOrganizerDataService { get; set; }
-    public OrganizerDTO CurrentOrganizer { get; set; } = new OrganizerDTO()
-    {
-    };
-
-
+    public ICurrentAttendeeDataService CurrentAttendeeDataService { get; set; }
+    public AttendeeDTO CurrentAttendee { get; set; } = new AttendeeDTO() { };
 
     protected override async Task OnInitializedAsync()
     {
-        CurrentOrganizer = await CurrentOrganizerDataService.GetCurrentUser();
-        if (!CurrentOrganizer.Appointments.Any())
-        {
-
-        }
+        CurrentAttendee = await CurrentAttendeeDataService.GetCurrentUser();
     }
 }

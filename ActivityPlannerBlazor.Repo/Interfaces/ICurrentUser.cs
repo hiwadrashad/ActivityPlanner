@@ -9,5 +9,7 @@ namespace ActivityPlannerBlazor.Repo.Interfaces
     {
         OrganizerDTO GetCurrentOrganizer();
         OrganizerDTO UpdateCurrentOrganizer(OrganizerDTO item);
+        AttendeeDTO GetCurrentAttendee();
+        AttendeeDTO UpdateCurrentAttendee(AttendeeDTO item);
     }
 }

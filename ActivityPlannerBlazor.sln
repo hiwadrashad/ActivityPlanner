@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BenchMarkExecution", "TestC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTesting", "UnitTesting\UnitTesting.csproj", "{C7CCB1FE-2339-4CFF-AF49-A3F2E971A8D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StressTestExecution", "StressTestExecution\StressTestExecution.csproj", "{BA445B41-07C4-4513-947F-535B6000CD77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StressTestExecution", "StressTestExecution\StressTestExecution.csproj", "{BA445B41-07C4-4513-947F-535B6000CD77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

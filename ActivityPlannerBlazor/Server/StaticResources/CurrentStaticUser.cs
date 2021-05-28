@@ -14,6 +14,7 @@ namespace ActivityPlannerBlazor.Server.StaticResources
     {
         public IMockingRepo _repo = MockingRepo.GetMockingRepo();
         public OrganizerDTO CurrentOrganizer { get; set; }
+        public AttendeeDTO CurrentAttendee { get; set; }
 
         private static CurrentStaticUser _currentstaticuser;
 
@@ -36,19 +37,35 @@ namespace ActivityPlannerBlazor.Server.StaticResources
         private void InitData()
         {
             CurrentOrganizer = _repo.GetAllOrganizers().FirstOrDefault();
+            CurrentAttendee = _repo.GetAllAttendees().FirstOrDefault();
         }
 
+        public AttendeeDTO GetCurrentAttendee()
+        {
+            return CurrentAttendee;
+        }
         public OrganizerDTO GetCurrentOrganizer()
         {
             return CurrentOrganizer;
         }
 
+        public AttendeeDTO UpdateCurrentAttendee(AttendeeDTO item)
+        {
+            CurrentAttendee.AcceptedInvites = item.AcceptedInvites;
+            CurrentAttendee.Data = item.Data;
+            CurrentAttendee.id = item.id;
+            CurrentAttendee.NotAcceptedInvites = item.NotAcceptedInvites;
+            CurrentAttendee.password = item.password;
+            CurrentAttendee.PendingInvites = item.PendingInvites;
+            CurrentAttendee.Updates = item.Updates;
+            return CurrentAttendee;
+        }
         public OrganizerDTO UpdateCurrentOrganizer(OrganizerDTO item)
         {
-            _currentstaticuser.CurrentOrganizer.Acquaintances = item.Acquaintances;
-            _currentstaticuser.CurrentOrganizer.Appointments = item.Appointments;
-            _currentstaticuser.CurrentOrganizer.Data = item.Data;
-            _currentstaticuser.CurrentOrganizer.id = item.id;
+            CurrentOrganizer.Acquaintances = item.Acquaintances;
+            CurrentOrganizer.Appointments = item.Appointments;
+            CurrentOrganizer.Data = item.Data;
+            CurrentOrganizer.id = item.id;
             return CurrentOrganizer;
         }
     }

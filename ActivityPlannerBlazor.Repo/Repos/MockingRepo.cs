@@ -298,6 +298,244 @@ namespace ActivityPlannerBlazor.Repo.Repos
 
             _attendees = new List<AttendeeDTO>()
             { 
+               new AttendeeDTO()
+               { 
+                 AcceptedInvites = new List<AcceptedInviteDTO>()
+                 { 
+                  new AcceptedInviteDTO()
+                  {  
+                    Appointment = new AppointmentDTO()
+                    {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
+                       Location = "New York",
+                       Name = "Lisa's Study",
+                       Organizers = new List<OrganizerDTO>(){}
+                    }
+                  },
+                     new AcceptedInviteDTO()
+                  {
+                    Appointment = new AppointmentDTO()
+                    {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
+                       Location = "New York",
+                       Name = "Lisa's Study",
+                       Organizers = new List<OrganizerDTO>(){}
+                    }
+                  },
+                        new AcceptedInviteDTO()
+                  {
+                    Appointment = new AppointmentDTO()
+                    {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
+                       Location = "New York",
+                       Name = "Lisa's Study",
+                       Organizers = new List<OrganizerDTO>(){}
+                    }
+                  }                 
+                 },
+
+
+
+                 Data = new PersonalDataDTO()
+                 { 
+                  Email = "testattendee@hotmail.com",
+                  Name = "test",                  
+                 },
+                 id = Guid.NewGuid().ToString(),
+                 NotAcceptedInvites = new List<NotAcceptedInviteDTO>()
+                 { 
+                    new NotAcceptedInviteDTO()
+                    {
+                      Appointment = new AppointmentDTO()
+                      {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
+                       Location = "New York",
+                       Name = "Lisa's Study",
+                       Organizers = new List<OrganizerDTO>(){}
+                      }
+                    },
+                         new NotAcceptedInviteDTO()
+                    {
+                      Appointment = new AppointmentDTO()
+                      {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
+                       Location = "New York",
+                       Name = "Lisa's Study",
+                       Organizers = new List<OrganizerDTO>(){}
+                      }
+                    },
+                              new NotAcceptedInviteDTO()
+                    {
+                      Appointment = new AppointmentDTO()
+                      {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
+                       Location = "New York",
+                       Name = "Lisa's Study",
+                       Organizers = new List<OrganizerDTO>(){}
+                      }
+                    },
+                               new NotAcceptedInviteDTO()
+                    {
+                      Appointment = new AppointmentDTO()
+                      {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
+                       Location = "New York",
+                       Name = "Lisa's Study",
+                       Organizers = new List<OrganizerDTO>(){}
+                      }
+                    },
+                         new NotAcceptedInviteDTO()
+                    {
+                      Appointment = new AppointmentDTO()
+                      {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
+                       Location = "New York",
+                       Name = "Lisa's Study",
+                       Organizers = new List<OrganizerDTO>(){}
+                      }
+                    },
+                              new NotAcceptedInviteDTO()
+                    {
+                      Appointment = new AppointmentDTO()
+                      {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
+                       Location = "New York",
+                       Name = "Lisa's Study",
+                       Organizers = new List<OrganizerDTO>(){}
+                      }
+                    }
+                 }
+                 ,
+                 password = "testpassword",
+                 PendingInvites = new List<PendingInviteDTO>()
+                 { 
+                 
+                  new PendingInviteDTO()
+                  { 
+                    PendingAppointmentToBeAccepted = new AppointmentDTO()
+                    {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
+                       Location = "New York",
+                       Name = "Lisa's Study",
+                       Organizers = new List<OrganizerDTO>(){}
+                    }
+                  },
+                              new PendingInviteDTO()
+                  {
+                    PendingAppointmentToBeAccepted = new AppointmentDTO()
+                    {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
+                       Location = "New York",
+                       Name = "Lisa's Study",
+                       Organizers = new List<OrganizerDTO>(){}
+                    }
+                  },
+                                          new PendingInviteDTO()
+                  {
+                    PendingAppointmentToBeAccepted = new AppointmentDTO()
+                    {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
+                       Location = "New York",
+                       Name = "Lisa's Study",
+                       Organizers = new List<OrganizerDTO>(){}
+                    }
+                  },
+                                           new PendingInviteDTO()
+                  {
+                    PendingAppointmentToBeAccepted = new AppointmentDTO()
+                    {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
+                       Location = "New York",
+                       Name = "Lisa's Study",
+                       Organizers = new List<OrganizerDTO>(){}
+                    }
+                  },
+                              new PendingInviteDTO()
+                  {
+                    PendingAppointmentToBeAccepted = new AppointmentDTO()
+                    {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
+                       Location = "New York",
+                       Name = "Lisa's Study",
+                       Organizers = new List<OrganizerDTO>(){}
+                    }
+                  },
+                                          new PendingInviteDTO()
+                  {
+                    PendingAppointmentToBeAccepted = new AppointmentDTO()
+                    {
+                       id = Guid.NewGuid().ToString(),
+                       AcceptanceRate = 3,
+                       ApproximateDate = Shared.Enums.Season.Summer,
+                       Category = Shared.Enums.Category.Study,
+                       Description = "Study group for students of the HFT quant Trading class, applicable to everyone interested and living near New York, Message me if you want to chat or go out if you mark the afformentioned details",
+                       Location = "New York",
+                       Name = "Lisa's Study",
+                       Organizers = new List<OrganizerDTO>(){}
+                    }
+                  }
+                 }
+
+
+                 
+               
+               }
             };
             _appointments = new List<AppointmentDTO>()
             {
