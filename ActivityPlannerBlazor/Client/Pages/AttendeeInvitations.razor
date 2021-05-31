@@ -32,7 +32,11 @@
     }
 
     header {
-      padding: 100px;
+      padding: 50px;
+    }
+
+    .tm-paging-link {    
+    padding: 50px;
     }
 </style>
 <head>
@@ -73,6 +77,17 @@ else
                     <p class="col-12 text-center">Under this section you will find all pending invitations for which you are invited, click on the items to accept the invitation.</p>
                 </header>
 
+
+                <div class="tm-paging-links">
+                    <nav>
+                        <ul>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link active">Sport</a></li>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link">Education</a></li>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link">Other</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
                 <!-- Gallery -->
                 <div class="row tm-gallery">
                     <div id="tm-gallery-page-pizza" class="tm-gallery-page">
@@ -99,6 +114,17 @@ else
                     <p class="col-12 text-center">Under this section you will find all invitations for which you have accepted the previously pending invitation.</p>
                 </header>
 
+
+                <div class="tm-paging-links">
+                    <nav>
+                        <ul>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link active">Sport</a></li>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link">Education</a></li>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link">Other</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
                 <div class="tm-section tm-container-inner">
                     @foreach (var item in CurrentAttendee.AcceptedInvites)
                     {
@@ -123,6 +149,17 @@ else
                 <h2 class="col-12 text-center tm-section-title">Not accepted invites</h2>
                 <p class="col-12 text-center">Under this section you will find all group meetings for which you have previously assigned that you wouldn't want to attend it.</p>
             </header>
+
+
+            <div class="tm-paging-links">
+                <nav>
+                    <ul>
+                        <li class="tm-paging-item"><a href="#" class="tm-paging-link active">Sport</a></li>
+                        <li class="tm-paging-item"><a href="#" class="tm-paging-link">Education</a></li>
+                        <li class="tm-paging-item"><a href="#" class="tm-paging-link">Other</a></li>
+                    </ul>
+                </nav>
+            </div>
 
             <!-- Gallery -->
             <div class="row tm-gallery">

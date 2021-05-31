@@ -106,7 +106,7 @@ namespace ActivityPlannerBlazor.Repo.Repos
                        AcceptanceRate = 3,
                        ApproximateDate = Shared.Enums.Season.Summer,
                        Category = Shared.Enums.Category.Excersise,
-                       Description = "For everyon who is invited, we will be hooping some balls around Center Park",
+                       Description = "For everyon who is invited, we will be hooping some balls around Center Park, if you are interested in other activities attend the given appointment and we will discuss further details along the way",
                        Location = "Center park",
                        Name = "Baskteball group"
                      },
@@ -116,7 +116,7 @@ namespace ActivityPlannerBlazor.Repo.Repos
                        AcceptanceRate = 3,
                        ApproximateDate = Shared.Enums.Season.Summer,
                        Category = Shared.Enums.Category.Excersise,
-                       Description = "For everyon who is invited, we will be hooping some balls around Center Park",
+                       Description = "For everyon who is invited, we will be hooping some balls around Center Park, if you are interested in other activities attend the given appointment and we will discuss further details along the way",
                        Location = "Center park",
                        Name = "Baskteball group"
                      },
@@ -126,7 +126,7 @@ namespace ActivityPlannerBlazor.Repo.Repos
                        AcceptanceRate = 3,
                        ApproximateDate = Shared.Enums.Season.Summer,
                        Category = Shared.Enums.Category.Excersise,
-                       Description = "For everyon who is invited, we will be hooping some balls around Center Park",
+                       Description = "For everyon who is invited, we will be hooping some balls around Center Park, if you are interested in other activities attend the given appointment and we will discuss further details along the way",
                        Location = "Center park",
                        Name = "Baskteball group"
                      },
@@ -136,7 +136,7 @@ namespace ActivityPlannerBlazor.Repo.Repos
                        AcceptanceRate = 3,
                        ApproximateDate = Shared.Enums.Season.Summer,
                        Category = Shared.Enums.Category.Excersise,
-                       Description = "For everyon who is invited, we will be hooping some balls around Center Park",
+                       Description = "For everyon who is invited, we will be hooping some balls around Center Park, if you are interested in other activities attend the given appointment and we will discuss further details along the way",
                        Location = "Center park",
                        Name = "Baskteball group"
                      },
@@ -146,7 +146,7 @@ namespace ActivityPlannerBlazor.Repo.Repos
                        AcceptanceRate = 3,
                        ApproximateDate = Shared.Enums.Season.Summer,
                        Category = Shared.Enums.Category.Excersise,
-                       Description = "For everyon who is invited, we will be hooping some balls around Center Park",
+                       Description = "For everyon who is invited, we will be hooping some balls around Center Park, if you are interested in other activities attend the given appointment and we will discuss further details along the way",
                        Location = "Center park",
                        Name = "Baskteball group"
                      }

@@ -79,8 +79,9 @@ namespace ActivityPlannerBlazor.Server.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
+                    var currentUser = await _userManager.FindByEmailAsync(Input.Email);
+                    var roleresult = await _userManager.AddToRoleAsync(currentUser,"organizer");
                     _logger.LogInformation("User created a new account with password.");
-
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(

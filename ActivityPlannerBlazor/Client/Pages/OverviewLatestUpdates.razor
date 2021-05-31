@@ -33,7 +33,11 @@
         }
 
         header {
-            padding: 100px;
+            padding: 50px;
+        }
+
+        .tm-paging-links {
+           padding: 50px;
         }
     </style>
 <head>
@@ -73,6 +77,15 @@ else
                     <p class="col-12 text-center">Under this section you will find all group meetings in which the acceptance rate is surpassed, you are now open to set a discrete date of appointment.</p>
                 </header>
 
+                <div class="tm-paging-links">
+                    <nav>
+                        <ul>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link active">Sport</a></li>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link">Education</a></li>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link">Other</a></li>
+                        </ul>
+                    </nav>
+                </div>
                 <!-- Gallery -->
                 <div class="row tm-gallery">
                     <div id="tm-gallery-page-pizza" class="tm-gallery-page">
@@ -98,6 +111,15 @@ else
                     <h2 class="col-12 text-center tm-section-title">Messages</h2>
                     <p class="col-12 text-center">Under this section you will find all the messages which are send to you from your acquaintances, click to verify that you read the message.</p>
                 </header>
+
+                <div class="tm-paging-links">
+                    <nav>
+                        <ul>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link active">Read</a></li>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link">Unread</a></li>
+                        </ul>
+                    </nav>
+                </div>
 
                 <div class="tm-section tm-container-inner">
                     @foreach (var item in CurrentOrganizer.Messages)

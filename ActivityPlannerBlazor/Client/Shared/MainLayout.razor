@@ -82,6 +82,9 @@
                                 <a class="nav-link page-scroll active" href="authentication/login">Login <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link page-scroll" href="authentication/login">Login as attendee <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link page-scroll" href="authentication/register">Register</a>
                             </li>
                         </ul>
@@ -115,8 +118,12 @@
                                 <a class="nav-link page-scroll active" href="authentication/profile"> Hello, @context.User.Identity.Name! <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link page-scroll" href="/overviewlatestupdates">Latest updates</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link page-scroll" @onclick="BeginSignOut">Log out</a>
                             </li>
+
                         </ul>
                         <span class="nav-item app-store-icons">
                             <a href="#">
