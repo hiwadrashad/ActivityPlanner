@@ -1,4 +1,6 @@
 ﻿@page "/" 
+@using Microsoft.AspNetCore.Authorization
+
 <style>
     @@keyframes slideInFromLeft {
         0% {
@@ -83,7 +85,7 @@
     <link rel="icon" href="images/favicon.png">
 </head>
 
-<AuthorizeView >
+<AuthorizeView>
     <NotAuthorized>
         <body class="slidein" data-spy="scroll" data-target=".fixed-top">
             <div class="scalethis">
@@ -121,7 +123,6 @@
                 </div> <!-- end of basic-1 -->
                 <!-- end of introduction -->
                 <!-- Features -->
-
                 <!-- end of features -->
                 <!-- Details 1 -->
                 <div id="details" class="basic-2">
@@ -411,8 +412,9 @@
                 <!-- end of copyright -->
             </div>
         </body>
-        </NotAuthorized>
-    </AuthorizeView>
+    </NotAuthorized>
+</AuthorizeView>
+@*@attribute [Authorize(Roles = "organizer")]*@
 <AuthorizeView>
     <Authorized>
         <body class="slidein" data-spy="scroll" data-target=".fixed-top">
@@ -428,36 +430,33 @@
                                     <p class="p-large">Start making appointments the Activity Planner® way</p>
                                     <a class="btn-solid-lg" href="#"><i class="fab fa-apple"></i>Download</a>
                                     <a class="btn-solid-lg secondary" href="#"><i class="fab fa-google-play"></i>Download</a>
-                                </div> <!-- end of text-container -->
-                            </div> <!-- end of col -->
+                                </div>
+                            </div>
                             <div class="col-lg-6">
                                 <div class="image-container">
                                     <img class="img-fluid" src="/FrontPageTwo/images/header-smartphone.png" alt="alternative">
-                                </div> <!-- end of image-container -->
-                            </div> <!-- end of col -->
-                        </div> <!-- end of row -->
-                    </div> <!-- end of container -->
-                </header> <!-- end of header -->
-                <!-- end of header -->
-                <!-- Introduction -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
                 <div class="basic-1">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
                                 <p>No more uncertain appointments, the future is here to help you a hand with all your activity's, with integrated Whatsapp® support to send messages to all your contacts</p>
-                            </div> <!-- end of col -->
-                        </div> <!-- end of row -->
-                    </div> <!-- end of container -->
-                </div> <!-- end of basic-1 -->
-                <!-- end of introduction -->
-                <!-- Features -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div id="features" class="cards-1">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
 
-                                <!-- Card -->
+
                                 <div class="card">
                                     <div class="card-image">
                                         <img class="img-fluid" src="/FrontPageTwo/images/features-icon-1.svg" alt="alternative">
@@ -468,8 +467,7 @@
                                         <a href="/addappointment" class="card__btn">Go<span>&rarr;</span></a>
                                     </div>
                                 </div>
-                                <!-- end of card -->
-                                <!-- Card -->
+
                                 <div class="card">
                                     <div class="card-image">
                                         <img class="img-fluid" src="/FrontPageTwo/images/features-icon-2.svg" alt="alternative">
@@ -481,8 +479,6 @@
 
                                     </div>
                                 </div>
-                                <!-- end of card -->
-                                <!-- Card -->
                                 <div class="card">
                                     <div class="card-image">
                                         <img class="img-fluid" src="/FrontPageTwo/images/features-icon-5.svg" alt="alternative">
@@ -495,12 +491,11 @@
                                     </div>
                                 </div>
 
-                            </div> <!-- end of col -->
-                        </div> <!-- end of row -->
-                    </div> <!-- end of container -->
-                </div> <!-- end of cards-1 -->
-                <!-- end of features -->
-                <!-- Details 1 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="details" class="basic-2">
                     <div class="container">
                         <div class="row">
@@ -509,26 +504,25 @@
                                     <h2>Results driven ground breaking technology</h2>
                                     <p>We will help you on all levels of communication, Activity Planner® is suited for all types of people. </p>
                                     <p>High performant and scalable software for all your needs.</p>
-                                </div> <!-- end of text-container -->
-                            </div> <!-- end of col -->
+                                </div>
+                            </div>
                             <div class="col-lg-7">
                                 <div class="image-container">
                                     <img class="img-fluid" src="/FrontPageTwo/images/details-1.jpg" alt="alternative">
-                                </div> <!-- end of image-container -->
-                            </div> <!-- end of col -->
-                        </div> <!-- end of row -->
-                    </div> <!-- end of container -->
-                </div> <!-- end of basic-2 -->
-                <!-- end of details 1 -->
-                <!-- Details 2 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="basic-3">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-7">
                                 <div class="image-container">
                                     <img class="img-fluid" src="/FrontPageTwo/images/details-2.jpg" alt="alternative">
-                                </div> <!-- end of image-container -->
-                            </div> <!-- end of col -->
+                                </div>
+                            </div>
                             <div class="col-lg-5">
                                 <div class="text-container">
                                     <h2>Multidisciplinair platform</h2>
@@ -547,11 +541,11 @@
                                         </li>
                                     </ul>
                                     <a class="btn-solid-reg popup-with-move-anim" href="#">Read more</a>
-                                </div> <!-- end of text-container -->
-                            </div> <!-- end of col -->
-                        </div> <!-- end of row -->
-                    </div> <!-- end of container -->
-                </div> <!-- end of basic-3 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="basic-4">
                     <div class="container">
                         <div class="row">
@@ -560,27 +554,26 @@
                                     <h2>Platform independant meetings</h2>
                                     <p>Get a glimpse of what this app can do for you and your contacts.</p>
                                     <p>WMultiple platforms too choose, one click away from multi platform messaging</p>
-                                </div> <!-- end of text-container -->
-                            </div> <!-- end of col -->
+                                </div>
+                            </div>
                             <div class="col-lg-7">
                                 <div class="image-container">
                                     <img class="img-fluid" src="/FrontPageTwo/images/details-3.jpg" alt="alternative">
-                                </div> <!-- end of image-container -->
-                            </div> <!-- end of col -->
-                        </div> <!-- end of row -->
-                    </div> <!-- end of container -->
-                </div> <!-- end of basic-4 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="slider-1 bg-gray">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
                                 <h2 class="h2-heading">Our team</h2>
-                            </div> <!-- end of col -->
-                        </div> <!-- end of row -->
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-lg-12">
 
-                                <!-- Card Slider -->
                                 <div class="slider-container">
                                     <div class="swiper-container card-slider swiper-container-horizontal">
                                         <div class="swiper-wrapper" style="transform: translate3d(-1456px, 0px, 0px); transition-duration: 0ms;">
@@ -618,9 +611,8 @@
                                                         <p class="testimonial-author">Roy Smith - Developer</p>
                                                     </div>
                                                 </div>
-                                            </div> <!-- end of swiper-slide -->
-                                            <!-- end of slide -->
-                                            <!-- Slide -->
+                                            </div>
+
                                             <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="2" style="width: 294px; margin-right: 70px;">
                                                 <div class="card">
                                                     <img class="card-image" src="/FrontPageTwo/images/testimonial-3.jpg" alt="alternative">
@@ -629,9 +621,8 @@
                                                         <p class="testimonial-author">Marsha Singer - Marketer</p>
                                                     </div>
                                                 </div>
-                                            </div> <!-- end of swiper-slide -->
-                                            <!-- end of slide -->
-                                            <!-- Slide -->
+                                            </div>
+
                                             <div class="swiper-slide" data-swiper-slide-index="3" style="width: 294px; margin-right: 70px;">
                                                 <div class="card">
                                                     <img class="card-image" src="/FrontPageTwo/images/testimonial-4.jpg" alt="alternative">
@@ -640,9 +631,8 @@
                                                         <p class="testimonial-author">Tim Shaw - Designer</p>
                                                     </div>
                                                 </div>
-                                            </div> <!-- end of swiper-slide -->
-                                            <!-- end of slide -->
-                                            <!-- Slide -->
+                                            </div>
+
                                             <div class="swiper-slide" data-swiper-slide-index="4" style="width: 294px; margin-right: 70px;">
                                                 <div class="card">
                                                     <img class="card-image" src="/FrontPageTwo/images/testimonial-5.jpg" alt="alternative">
@@ -651,9 +641,8 @@
                                                         <p class="testimonial-author">Lindsay Spice - Marketer</p>
                                                     </div>
                                                 </div>
-                                            </div> <!-- end of swiper-slide -->
-                                            <!-- end of slide -->
-                                            <!-- Slide -->
+                                            </div>
+
                                             <div class="swiper-slide" data-swiper-slide-index="5" style="width: 294px; margin-right: 70px;">
                                                 <div class="card">
                                                     <img class="card-image" src="/FrontPageTwo/images/testimonial-6.jpg" alt="alternative">
@@ -662,8 +651,8 @@
                                                         <p class="testimonial-author">Ann Blake - Developer</p>
                                                     </div>
                                                 </div>
-                                            </div> <!-- end of swiper-slide -->
-                                            <!-- end of slide -->
+                                            </div>
+
 
                                             <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="0" style="width: 294px; margin-right: 70px;">
                                                 <div class="card">
@@ -690,21 +679,20 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> <!-- end of swiper-wrapper -->
-                                        <!-- Add Arrows -->
+                                        </div>
                                         <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"></div>
                                         <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide"></div>
-                                        <!-- end of add arrows -->
+
 
                                         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-                                    </div> <!-- end of swiper-container -->
-                                </div> <!-- end of slider-container -->
-                                <!-- end of card slider -->
+                                    </div>
+                                </div>
 
-                            </div> <!-- end of col -->
-                        </div> <!-- end of row -->
-                    </div> <!-- end of container -->
-                </div> <!-- end of slider-1 -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div id="download" class="basic-5">
                     <div class="container">
@@ -712,20 +700,19 @@
                             <div class="col-lg-6">
                                 <div class="image-container">
                                     <img class="img-fluid" src="/FrontPageTwo/images/conclusion-smartphone.png" alt="alternative">
-                                </div> <!-- end of image-container -->
-                            </div> <!-- end of col -->
+                                </div>
+                            </div>
                             <div class="col-lg-6">
                                 <div class="text-container">
                                     <p>get the latest version of Activity Planner® to stay in contact with all your contacts. Download it today</p>
                                     <a class="btn-solid-lg" href="#"><i class="fab fa-apple"></i>Download</a>
                                     <a class="btn-solid-lg secondary" href="#"><i class="fab fa-google-play"></i>Download</a>
-                                </div> <!-- end of text-container -->
-                            </div> <!-- end of col -->
-                        </div> <!-- end of row -->
-                    </div> <!-- end of container -->
-                </div> <!-- end of basic-5 -->
-                <!-- end of conclusion -->
-                <!-- Footer -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="footer">
                     <div class="container">
                         <div class="row">
@@ -762,13 +749,12 @@
                                             <i class="fab fa-youtube fa-stack-1x"></i>
                                         </a>
                                     </span>
-                                </div> <!-- end of social-container -->
-                            </div> <!-- end of col -->
-                        </div> <!-- end of row -->
-                    </div> <!-- end of container -->
-                </div> <!-- end of footer -->
-                <!-- end of footer -->
-                <!-- Copyright -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="copyright">
                     <div class="container">
                         <div class="row">
@@ -778,14 +764,14 @@
                                     <li><a href="#">Terms &amp; Conditions</a></li>
                                     <li><a href="#">Privacy Policy</a></li>
                                 </ul>
-                            </div> <!-- end of col -->
+                            </div>
                             <div class="col-lg-6">
                                 <p class="p-small statement">Copyright © <a href="#">Activity Planner®</a></p>
-                            </div> <!-- end of col -->
-                        </div> <!-- enf of row -->
-                    </div> <!-- end of container -->
-                </div> <!-- end of copyright -->
-                <!-- end of copyright -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </body>
     </Authorized>

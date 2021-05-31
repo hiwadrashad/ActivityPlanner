@@ -24,13 +24,15 @@ namespace ActivityPlannerBlazor.Server.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender, RoleManager<IdentityRole> roleManager)
         {
+            _roleManager = roleManager;
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
@@ -79,6 +81,13 @@ namespace ActivityPlannerBlazor.Server.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
+                    if (! await(_roleManager.RoleExistsAsync("organizer")))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole()
+                        { 
+                          Name = "organizer"
+                        });
+                    }
                     var currentUser = await _userManager.FindByEmailAsync(Input.Email);
                     var roleresult = await _userManager.AddToRoleAsync(currentUser,"organizer");
                     _logger.LogInformation("User created a new account with password.");
