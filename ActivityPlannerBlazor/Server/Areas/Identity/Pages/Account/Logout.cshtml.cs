@@ -23,6 +23,7 @@ namespace ActivityPlannerBlazor.Server.Areas.Identity.Pages.Account
             _logger = logger;
         }
 
+       
         public void OnGet()
         {
         }

@@ -14,6 +14,7 @@ namespace ActivityPlannerBlazor.Server.Controllers
             _logger = logger;
         }
 
+        
         public IClientRequestParametersProvider ClientRequestParametersProvider { get; }
 
         [HttpGet("_configuration/{clientId}")]

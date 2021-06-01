@@ -30,5 +30,6 @@ namespace ActivityPlannerBlazor.Shared.DTOS
         public int AcceptanceRate { get; set; }
         [Display(Name = "Accepted invite?")]
         public List<Tuple<AttendeeDTO, bool>> AcceptedOrNot { get; set; } = new List<Tuple<AttendeeDTO, bool>>();
+        public string Imagepath { get; set; }
     }
 }

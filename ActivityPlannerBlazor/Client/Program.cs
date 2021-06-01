@@ -2,6 +2,7 @@ using ActivityPlannerBlazor.Client.DataService;
 using ActivityPlannerBlazor.Client.Interfaces;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -18,6 +19,7 @@ namespace ActivityPlannerBlazor.Client
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
+
             builder.RootComponents.Add<App>("app");
 
             builder.Services.AddHttpClient("ActivityPlannerBlazor.ServerAPI", client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress))
@@ -46,6 +48,10 @@ namespace ActivityPlannerBlazor.Client
                 client.BaseAddress = new Uri("https://localhost:44333/");
             });
             builder.Services.AddHttpClient<ICurrentAttendeeDataService, CurrentAttendeeDataService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44333/");
+            });
+            builder.Services.AddHttpClient<IRoleDataService, RoleDataService>(client =>
             {
                 client.BaseAddress = new Uri("https://localhost:44333/");
             });

@@ -14,6 +14,7 @@
 
 <AuthorizeView>
     <Authorized>
+        @context.User.
         <a href="authentication/profile">Hello, @context.User.Identity.Name!</a>
         <button class="nav-link btn btn-link" @onclick="BeginSignOut">Log out</button>
     </Authorized>

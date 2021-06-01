@@ -15,6 +15,7 @@ namespace ActivityPlannerBlazor.Server.Controllers
     [ApiController]
     public class AppointmentController : Controller
     {
+        
         public IMockingRepo _repo = MockingRepo.GetMockingRepo();
         [HttpGet]
         public IActionResult GetAll()
